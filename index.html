@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vendre Sans Limites — Kévin D'ALMEIDA</title>
+<meta name="description" content="Vendre Sans Limites — Le guide pratique de Kévin D'ALMEIDA pour maîtriser la vente en Afrique. 11 chapitres, scripts prêts à l'emploi, coaching personnalisé.">
+<meta name="keywords" content="vente Afrique, formation vente, guide vente, Kévin D'ALMEIDA, coaching commercial Afrique">
+<meta property="og:title" content="Vendre Sans Limites — Kévin D'ALMEIDA">
+<meta property="og:description" content="Maîtrise les techniques des meilleurs vendeurs africains. Guide PDF, Audio, Coaching disponibles.">
+<meta name="author" content="Kévin D'ALMEIDA">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9960C;
+  --gold-light: #F5C842;
+  --gold-pale: #FDF6E3;
+  --dark: #0F1923;
+  --dark2: #1C2B3A;
+  --text: #1A1A2E;
+  --text-muted: #6B7280;
+  --white: #FFFFFF;
+  --light-bg: #F8F9FC;
+  --border: #E5E7EB;
+  --red: #C0392B;
+  --green: #059669;
+  --wa: #25D366;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text);
+  background: var(--white);
+  overflow-x: hidden;
+}
+
+/* ── NAVBAR ─────────────────────────────────────────────────────────────── */
+nav {
+  position: fixed; top:0; left:0; right:0; z-index:100;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 5%;
+  height: 70px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem; font-weight: 900;
+  color: var(--dark);
+  letter-spacing: -0.5px;
+}
+.nav-logo span { color: var(--gold); }
+.nav-links { display:flex; gap:2rem; list-style:none; }
+.nav-links a {
+  text-decoration:none; color: var(--text-muted);
+  font-size: 0.9rem; font-weight:500;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-cta {
+  background: var(--gold);
+  color: white; border:none; cursor:pointer;
+  padding: 10px 22px; border-radius: 8px;
+  font-size: 0.9rem; font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.nav-cta:hover { background: #a67c0a; transform: translateY(-1px); }
+
+/* ── HERO ────────────────────────────────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0F1923 0%, #1C2B3A 50%, #0F2535 100%);
+  display: flex; align-items: center;
+  padding: 100px 5% 60px;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(201,150,12,0.12) 0%, transparent 60%);
+}
+.hero-grid {
+  position:absolute; inset:0; opacity:0.04;
+  background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.hero-content {
+  max-width: 1100px; margin:0 auto;
+  display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px;
+  align-items: center; position: relative; z-index:1;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(201,150,12,0.15);
+  border: 1px solid rgba(201,150,12,0.4);
+  padding: 8px 16px; border-radius: 100px;
+  color: var(--gold-light); font-size: 0.82rem; font-weight: 600;
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.6s ease both;
+}
+.hero-badge::before { content:'✦'; font-size:0.7rem; }
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 900; line-height: 1.05;
+  color: var(--white); margin-bottom: 1.5rem;
+  animation: fadeUp 0.6s 0.1s ease both;
+}
+.hero h1 .accent { color: var(--gold-light); display:block; }
+.hero-subtitle {
+  font-size: 1.1rem; color: rgba(255,255,255,0.7);
+  line-height: 1.7; margin-bottom: 2.5rem;
+  animation: fadeUp 0.6s 0.2s ease both;
+}
+.hero-stats {
+  display: flex; gap: 2rem; margin-bottom: 2.5rem;
+  animation: fadeUp 0.6s 0.3s ease both;
+}
+.hero-stat { text-align:center; }
+.hero-stat .num {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem; font-weight: 900; color: var(--gold-light);
+  display:block;
+}
+.hero-stat .label {
+  font-size: 0.78rem; color: rgba(255,255,255,0.55);
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+.hero-stat-divider { width:1px; background: rgba(255,255,255,0.1); }
+.hero-actions {
+  display:flex; gap:1rem; flex-wrap:wrap;
+  animation: fadeUp 0.6s 0.4s ease both;
+}
+.btn-primary {
+  background: var(--gold);
+  color: white; border:none; cursor:pointer;
+  padding: 16px 32px; border-radius: 10px;
+  font-size: 1rem; font-weight: 700;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.25s;
+  text-decoration: none; display:inline-flex; align-items:center; gap:8px;
+  box-shadow: 0 4px 20px rgba(201,150,12,0.4);
+}
+.btn-primary:hover { background:#a67c0a; transform:translateY(-2px); box-shadow:0 8px 30px rgba(201,150,12,0.5); }
+.btn-secondary {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: white; cursor:pointer;
+  padding: 16px 32px; border-radius: 10px;
+  font-size: 1rem; font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.25s; text-decoration:none;
+  display:inline-flex; align-items:center; gap:8px;
+}
+.btn-secondary:hover { background:rgba(255,255,255,0.15); transform:translateY(-2px); }
+
+/* Hero right — book mockup */
+.hero-visual {
+  display:flex; flex-direction:column; align-items:center; gap:2rem;
+  animation: fadeUp 0.6s 0.2s ease both;
+}
+.book-mockup {
+  width: 260px;
+  background: linear-gradient(135deg, #0A1628, #1A3A5C);
+  border-radius: 8px 16px 16px 8px;
+  padding: 40px 30px;
+  box-shadow: -8px 8px 0 rgba(0,0,0,0.3), 20px 30px 60px rgba(0,0,0,0.5),
+              0 0 0 1px rgba(255,255,255,0.05);
+  position:relative; overflow:hidden;
+  text-align:center;
+  transform: perspective(800px) rotateY(-8deg) rotateX(3deg);
+}
+.book-mockup::before {
+  content:'';
+  position:absolute; top:0; left:0; right:0; height:4px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+}
+.book-mockup::after {
+  content:'';
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse at 70% 30%, rgba(201,150,12,0.08), transparent 60%);
+}
+.book-globe { font-size: 4rem; margin-bottom: 1rem; display:block; }
+.book-title {
+  font-family: 'Playfair Display', serif;
+  color: white; font-size: 1.4rem; font-weight:900;
+  line-height:1.2; margin-bottom:0.5rem;
+}
+.book-title .gold { color: var(--gold-light); }
+.book-subtitle-small {
+  font-size:0.72rem; color:rgba(255,255,255,0.5);
+  text-transform:uppercase; letter-spacing:1px; margin-bottom:1.5rem;
+}
+.book-author {
+  font-size:0.85rem; color:rgba(255,255,255,0.8); font-weight:600;
+  border-top:1px solid rgba(255,255,255,0.1); padding-top:1rem;
+}
+.book-spine {
+  position:absolute; left:0; top:0; bottom:0; width:12px;
+  background: linear-gradient(180deg, #C9960C, #8B6914);
+}
+
+.hero-trust {
+  display:flex; align-items:center; gap:10px;
+  background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1);
+  padding:12px 20px; border-radius:10px;
+}
+.hero-trust-text { font-size:0.82rem; color:rgba(255,255,255,0.7); }
+.hero-trust-text strong { color:white; display:block; font-size:0.9rem; }
+.stars { color: var(--gold-light); font-size:0.9rem; letter-spacing:2px; }
+
+/* ── PROBLEM SECTION ─────────────────────────────────────────────────────── */
+.section { padding: 90px 5%; }
+.section-inner { max-width:1100px; margin:0 auto; }
+.section-tag {
+  display:inline-block;
+  background: var(--gold-pale); color: var(--gold);
+  font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:1px;
+  padding:6px 14px; border-radius:100px; margin-bottom:1rem;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight:900; line-height:1.15; margin-bottom:1rem;
+}
+.section-title .gold { color:var(--gold); }
+.section-subtitle { font-size:1.05rem; color:var(--text-muted); line-height:1.7; max-width:600px; }
+
+.problems-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:3rem;
+}
+.problem-card {
+  background:var(--light-bg); border:1px solid var(--border);
+  border-radius:16px; padding:2rem;
+  position:relative; overflow:hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.problem-card:hover { transform:translateY(-4px); box-shadow:0 12px 40px rgba(0,0,0,0.08); }
+.problem-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:3px;
+  background:linear-gradient(90deg, var(--gold), var(--gold-light));
+  opacity:0; transition:opacity 0.2s;
+}
+.problem-card:hover::before { opacity:1; }
+.problem-icon { font-size:2rem; margin-bottom:1rem; display:block; }
+.problem-card h3 { font-size:1rem; font-weight:700; margin-bottom:0.5rem; }
+.problem-card p { font-size:0.9rem; color:var(--text-muted); line-height:1.6; }
+
+/* ── WHAT YOU LEARN ──────────────────────────────────────────────────────── */
+.learn-section { background:var(--light-bg); }
+.learn-grid {
+  display:grid; grid-template-columns:repeat(2,1fr); gap:1rem; margin-top:3rem;
+}
+.learn-item {
+  display:flex; gap:1rem; align-items:flex-start;
+  background:white; border:1px solid var(--border);
+  border-radius:12px; padding:1.5rem;
+  transition: box-shadow 0.2s;
+}
+.learn-item:hover { box-shadow:0 4px 20px rgba(0,0,0,0.06); }
+.learn-num {
+  width:36px; height:36px; border-radius:8px;
+  background:var(--gold); color:white;
+  font-weight:900; font-size:0.9rem;
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0;
+}
+.learn-item h4 { font-size:0.95rem; font-weight:700; margin-bottom:0.3rem; }
+.learn-item p { font-size:0.85rem; color:var(--text-muted); line-height:1.5; }
+
+/* ── PRICING ─────────────────────────────────────────────────────────────── */
+.pricing-grid {
+  display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; margin-top:3rem;
+}
+.pricing-card {
+  border-radius:20px; padding:2rem;
+  border:2px solid var(--border);
+  background:white; position:relative;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  display:flex; flex-direction:column;
+}
+.pricing-card:hover { transform:translateY(-6px); box-shadow:0 20px 50px rgba(0,0,0,0.1); }
+.pricing-card.featured {
+  border-color: var(--gold);
+  background: linear-gradient(160deg, #0F1923, #1C2B3A);
+  color:white;
+}
+.pricing-card.featured .price-desc,
+.pricing-card.featured .price-feature { color:rgba(255,255,255,0.65); }
+.pricing-badge {
+  position:absolute; top:-14px; left:50%; transform:translateX(-50%);
+  background:var(--gold); color:white;
+  font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:1px;
+  padding:4px 14px; border-radius:100px; white-space:nowrap;
+}
+.price-icon { font-size:2.2rem; margin-bottom:1rem; display:block; }
+.price-name { font-weight:700; font-size:1rem; margin-bottom:0.5rem; }
+.price-amount {
+  font-family:'Playfair Display', serif;
+  font-size:2rem; font-weight:900; color:var(--gold); margin-bottom:0.2rem;
+}
+.pricing-card.featured .price-amount { color:var(--gold-light); }
+.price-period { font-size:0.8rem; color:var(--text-muted); margin-bottom:1rem; }
+.pricing-card.featured .price-period { color:rgba(255,255,255,0.5); }
+.price-desc { font-size:0.85rem; color:var(--text-muted); line-height:1.5; margin-bottom:1.5rem; }
+.price-features { list-style:none; margin-bottom:1.5rem; flex:1; }
+.price-feature {
+  font-size:0.85rem; color:var(--text-muted);
+  padding:0.4rem 0;
+  display:flex; align-items:flex-start; gap:8px;
+  border-bottom:1px solid var(--border);
+}
+.pricing-card.featured .price-feature { border-color:rgba(255,255,255,0.08); }
+.price-feature::before { content:'✓'; color:var(--green); font-weight:700; flex-shrink:0; margin-top:1px; }
+.btn-wa {
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  background:var(--wa); color:white;
+  padding:12px 20px; border-radius:10px;
+  font-weight:700; font-size:0.9rem;
+  text-decoration:none; transition:all 0.2s;
+  font-family:'DM Sans',sans-serif;
+}
+.btn-wa:hover { background:#1ea855; transform:translateY(-2px); box-shadow:0 6px 20px rgba(37,211,102,0.4); }
+.btn-wa-dark {
+  background:rgba(37,211,102,0.15);
+  border:1px solid rgba(37,211,102,0.4);
+  color:#4ade80;
+}
+.btn-wa-dark:hover { background:var(--wa); color:white; }
+
+/* ── TESTIMONIALS ────────────────────────────────────────────────────────── */
+.testimonials-section { background:var(--dark); }
+.testimonials-section .section-title { color:white; }
+.testimonials-section .section-subtitle { color:rgba(255,255,255,0.6); }
+.testimonials-section .section-tag { background:rgba(201,150,12,0.15); color:var(--gold-light); }
+.testimonials-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:3rem;
+}
+.testimonial-card {
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:16px; padding:1.8rem;
+  transition: transform 0.2s, background 0.2s;
+}
+.testimonial-card:hover { transform:translateY(-4px); background:rgba(255,255,255,0.07); }
+.t-stars { color:var(--gold-light); font-size:0.9rem; letter-spacing:3px; margin-bottom:1rem; }
+.t-text {
+  font-size:0.9rem; color:rgba(255,255,255,0.75);
+  line-height:1.7; margin-bottom:1.5rem;
+  font-style:italic;
+}
+.t-author { display:flex; align-items:center; gap:12px; }
+.t-avatar {
+  width:42px; height:42px; border-radius:50%;
+  background:linear-gradient(135deg, var(--gold), var(--gold-light));
+  display:flex; align-items:center; justify-content:center;
+  font-weight:900; color:white; font-size:1rem; flex-shrink:0;
+}
+.t-name { font-weight:700; color:white; font-size:0.9rem; }
+.t-role { font-size:0.78rem; color:rgba(255,255,255,0.45); }
+
+/* ── ABOUT ───────────────────────────────────────────────────────────────── */
+.about-inner {
+  display:grid; grid-template-columns:0.85fr 1.15fr; gap:60px; align-items:center;
+}
+.about-card {
+  background:linear-gradient(135deg, var(--dark), var(--dark2));
+  border-radius:20px; padding:3rem;
+  text-align:center; color:white; position:relative; overflow:hidden;
+}
+.about-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:4px;
+  background:linear-gradient(90deg, var(--gold), var(--gold-light));
+}
+.about-avatar {
+  width:90px; height:90px; border-radius:50%; margin:0 auto 1rem;
+  background:linear-gradient(135deg, var(--gold), var(--gold-light));
+  display:flex; align-items:center; justify-content:center;
+  font-size:2.5rem; font-weight:900; color:white;
+  font-family:'Playfair Display',serif;
+  box-shadow:0 8px 30px rgba(201,150,12,0.4);
+}
+.about-name {
+  font-family:'Playfair Display',serif;
+  font-size:1.4rem; font-weight:900; margin-bottom:0.3rem;
+}
+.about-title { font-size:0.82rem; color:var(--gold-light); font-weight:600; margin-bottom:1.5rem; }
+.about-stat-row {
+  display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1.5rem;
+}
+.about-stat-box {
+  background:rgba(255,255,255,0.06); border-radius:10px; padding:1rem;
+  border:1px solid rgba(255,255,255,0.08);
+}
+.about-stat-box .num {
+  font-family:'Playfair Display',serif;
+  font-size:1.5rem; font-weight:900; color:var(--gold-light); display:block;
+}
+.about-stat-box .lbl { font-size:0.72rem; color:rgba(255,255,255,0.5); }
+.about-content h2 {
+  font-family:'Playfair Display',serif;
+  font-size:2.2rem; font-weight:900; line-height:1.2; margin-bottom:1.5rem;
+}
+.about-content p { color:var(--text-muted); line-height:1.8; margin-bottom:1rem; font-size:0.95rem; }
+.about-tags { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:1.5rem; }
+.about-tag {
+  background:var(--gold-pale); color:var(--gold);
+  font-size:0.78rem; font-weight:600;
+  padding:5px 12px; border-radius:100px;
+  border:1px solid rgba(201,150,12,0.2);
+}
+
+/* ── FAQ ─────────────────────────────────────────────────────────────────── */
+.faq-section { background:var(--light-bg); }
+.faq-grid { max-width:750px; margin:3rem auto 0; }
+.faq-item {
+  background:white; border:1px solid var(--border);
+  border-radius:12px; margin-bottom:0.75rem; overflow:hidden;
+}
+.faq-q {
+  padding:1.2rem 1.5rem;
+  font-weight:700; font-size:0.95rem; cursor:pointer;
+  display:flex; justify-content:space-between; align-items:center;
+  user-select:none;
+}
+.faq-q:hover { background:var(--light-bg); }
+.faq-icon { color:var(--gold); font-size:1.2rem; transition:transform 0.3s; }
+.faq-item.open .faq-icon { transform:rotate(45deg); }
+.faq-a {
+  max-height:0; overflow:hidden; transition:max-height 0.35s ease, padding 0.3s;
+  font-size:0.9rem; color:var(--text-muted); line-height:1.7;
+  padding:0 1.5rem;
+}
+.faq-item.open .faq-a { max-height:200px; padding:0 1.5rem 1.2rem; }
+
+/* ── CTA FINAL ───────────────────────────────────────────────────────────── */
+.cta-section {
+  background:linear-gradient(135deg, var(--dark), var(--dark2));
+  text-align:center; padding:100px 5%;
+}
+.cta-section h2 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem, 4vw, 3.2rem); font-weight:900;
+  color:white; margin-bottom:1rem; line-height:1.2;
+}
+.cta-section h2 .gold { color:var(--gold-light); }
+.cta-section p { color:rgba(255,255,255,0.65); font-size:1.05rem; margin-bottom:2.5rem; max-width:500px; margin-left:auto; margin-right:auto; }
+.cta-buttons { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+
+/* ── FOOTER ──────────────────────────────────────────────────────────────── */
+footer {
+  background:var(--dark); border-top:1px solid rgba(255,255,255,0.06);
+  padding:2rem 5%; text-align:center;
+}
+footer p { font-size:0.82rem; color:rgba(255,255,255,0.35); }
+footer strong { color:rgba(255,255,255,0.6); }
+
+/* ── WA FLOAT BUTTON ─────────────────────────────────────────────────────── */
+.wa-float {
+  position:fixed; bottom:28px; right:28px; z-index:200;
+  width:58px; height:58px; border-radius:50%;
+  background:var(--wa); color:white;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.6rem; text-decoration:none;
+  box-shadow:0 6px 24px rgba(37,211,102,0.5);
+  transition:all 0.25s; animation:pulse-wa 2.5s infinite;
+}
+.wa-float:hover { transform:scale(1.1); box-shadow:0 10px 36px rgba(37,211,102,0.6); }
+@keyframes pulse-wa {
+  0%,100% { box-shadow:0 6px 24px rgba(37,211,102,0.5); }
+  50% { box-shadow:0 6px 36px rgba(37,211,102,0.8); }
+}
+
+/* ── ANIMATIONS ──────────────────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(24px); }
+  to { opacity:1; transform:translateY(0); }
+}
+.reveal {
+  opacity:0; transform:translateY(30px);
+  transition:opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+
+/* ── APERÇU DU GUIDE ─────────────────────────────────────────────────────── */
+.apercu-section { background: var(--light-bg); }
+.apercu-inner {
+  display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 60px; align-items: center;
+}
+.apercu-book {
+  position: relative; text-align: center;
+}
+.apercu-book img {
+  width: 100%; max-width: 320px;
+  border-radius: 12px;
+  box-shadow: -10px 10px 0 rgba(0,0,0,0.15), 0 30px 80px rgba(0,0,0,0.2);
+  transform: perspective(800px) rotateY(-5deg) rotateX(2deg);
+  transition: transform 0.4s ease;
+}
+.apercu-book img:hover {
+  transform: perspective(800px) rotateY(0deg) rotateX(0deg) scale(1.02);
+}
+.apercu-badge {
+  position: absolute; top: -15px; right: 10px;
+  background: var(--gold); color: white;
+  font-size: 0.78rem; font-weight: 700;
+  padding: 6px 14px; border-radius: 100px;
+  box-shadow: 0 4px 15px rgba(201,150,12,0.5);
+}
+.apercu-features { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+.apercu-feature {
+  display: flex; gap: 1rem; align-items: flex-start;
+  padding: 1.2rem; background: white;
+  border: 1px solid var(--border); border-radius: 12px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.apercu-feature:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.07); transform: translateX(4px); }
+.apercu-feature-icon {
+  font-size: 1.5rem; flex-shrink: 0;
+  width: 44px; height: 44px;
+  background: var(--gold-pale); border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+}
+.apercu-feature h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.2rem; }
+.apercu-feature p { font-size: 0.83rem; color: var(--text-muted); line-height: 1.5; }
+
+/* ── CONTACT ─────────────────────────────────────────────────────────────── */
+.contact-section { background: var(--white); }
+.contact-inner {
+  display: grid; grid-template-columns: 1fr 1.3fr; gap: 60px; align-items: start;
+}
+.contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+.contact-card {
+  display: flex; gap: 1rem; align-items: flex-start;
+  padding: 1.5rem; border-radius: 14px;
+  border: 1px solid var(--border); background: var(--light-bg);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.contact-card:hover { box-shadow: 0 8px 25px rgba(0,0,0,0.08); transform: translateY(-2px); }
+.contact-card-icon {
+  width: 48px; height: 48px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; flex-shrink: 0;
+}
+.contact-card-icon.wa { background: rgba(37,211,102,0.12); }
+.contact-card-icon.mail { background: rgba(201,150,12,0.12); }
+.contact-card h4 { font-size: 0.85rem; font-weight: 700; margin-bottom: 0.2rem; }
+.contact-card p { font-size: 0.82rem; color: var(--text-muted); }
+.contact-card a { color: var(--gold); font-weight: 600; text-decoration: none; font-size: 0.9rem; }
+.contact-card a:hover { text-decoration: underline; }
+
+.contact-form {
+  background: var(--light-bg); border: 1px solid var(--border);
+  border-radius: 20px; padding: 2.5rem;
+}
+.contact-form h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem; font-weight: 900; margin-bottom: 0.5rem;
+}
+.contact-form p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.8rem; }
+.form-group { margin-bottom: 1.2rem; }
+.form-group label {
+  display: block; font-size: 0.85rem; font-weight: 600;
+  margin-bottom: 0.4rem; color: var(--text);
+}
+.form-group input,
+.form-group textarea {
+  width: 100%; padding: 12px 16px;
+  border: 1.5px solid var(--border); border-radius: 10px;
+  font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+  color: var(--text); background: white;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  resize: none;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201,150,12,0.12);
+}
+.form-group textarea { height: 120px; }
+.btn-submit {
+  width: 100%; padding: 14px;
+  background: var(--gold); color: white;
+  border: none; border-radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem; font-weight: 700; cursor: pointer;
+  transition: all 0.2s; display: flex; align-items: center;
+  justify-content: center; gap: 8px;
+}
+.btn-submit:hover { background: #a67c0a; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(201,150,12,0.4); }
+.form-success {
+  display: none; text-align: center; padding: 2rem;
+}
+.form-success .check { font-size: 3rem; margin-bottom: 1rem; display: block; }
+.form-success h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+.form-success p { font-size: 0.9rem; color: var(--text-muted); }
+
+/* ── BACK TO TOP ─────────────────────────────────────────────────────────── */
+.back-top {
+  position: fixed; bottom: 100px; right: 28px; z-index: 200;
+  width: 42px; height: 42px; border-radius: 50%;
+  background: white; border: 1.5px solid var(--border);
+  color: var(--text); font-size: 1rem;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: all 0.25s; opacity: 0; pointer-events: none;
+  text-decoration: none;
+}
+.back-top.visible { opacity: 1; pointer-events: all; }
+.back-top:hover { background: var(--gold); color: white; border-color: var(--gold); transform: translateY(-3px); }
+
+@media(max-width:900px) {
+  .apercu-inner { grid-template-columns: 1fr; }
+  .apercu-book img { max-width: 220px; }
+  .contact-inner { grid-template-columns: 1fr; }
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .hero-content { grid-template-columns:1fr; text-align:center; }
+  .hero-stats { justify-content:center; }
+  .hero-actions { justify-content:center; }
+  .hero-visual { display:none; }
+  .problems-grid { grid-template-columns:1fr; }
+  .learn-grid { grid-template-columns:1fr; }
+  .pricing-grid { grid-template-columns:1fr 1fr; }
+  .testimonials-grid { grid-template-columns:1fr; }
+  .about-inner { grid-template-columns:1fr; }
+  .nav-links { display:none; }
+}
+@media (max-width:600px) {
+  .pricing-grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-logo">Vendre<span>Sans</span>Limites</div>
+  <ul class="nav-links">
+    <li><a href="#apercu">Aperçu</a></li>
+    <li><a href="#apprendre">Ce que tu apprends</a></li>
+    <li><a href="#offres">Offres</a></li>
+    <li><a href="#temoignages">Témoignages</a></li>
+    <li><a href="#auteur">L'auteur</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://wa.me/22890550915?text=Bonjour%20Kévin,%20je%20suis%20intéressé(e)%20par%20le%20guide%20Vendre%20Sans%20Limites" target="_blank" class="nav-cta">Commander →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-badge">Guide Pratique · Édition Afrique 2025</div>
+      <h1>Vendre<span class="accent">Sans Limites</span></h1>
+      <p class="hero-subtitle">Maîtrise les techniques des meilleurs vendeurs africains et transforme chaque conversation en vente — dès aujourd'hui.</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="num">+1 200</span>
+          <span class="label">Entrepreneurs formés</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <span class="num">6</span>
+          <span class="label">Pays d'Afrique</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <span class="num">94%</span>
+          <span class="label">Satisfaction</span>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <a href="#offres" class="btn-primary">Voir les offres ↓</a>
+        <a href="https://wa.me/22890550915?text=Bonjour%20Kévin,%20je%20veux%20en%20savoir%20plus%20sur%20Vendre%20Sans%20Limites" target="_blank" class="btn-secondary">💬 Nous contacter</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="book-mockup">
+        <div class="book-spine"></div>
+        <span class="book-globe">🌍</span>
+        <div class="book-title">VENDRE<br><span class="gold">SANS</span><br>LIMITES</div>
+        <div class="book-subtitle-small">Comment vendre n'importe quoi<br>à n'importe qui</div>
+        <div class="book-author">Kévin D'ALMEIDA<br><small style="color:rgba(255,255,255,0.4);font-size:0.7rem">Docteur en Vente</small></div>
+      </div>
+      <div class="hero-trust">
+        <div class="stars">★★★★★</div>
+        <div class="hero-trust-text">
+          <strong>Note moyenne 4.9/5</strong>
+          sur plus de 200 avis clients
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="section">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-tag">Tu te reconnais ?</div>
+      <h2 class="section-title">Les problèmes que vivent<br>la plupart des <span class="gold">vendeurs africains</span></h2>
+      <p class="section-subtitle">Si tu vis l'une de ces situations, ce guide a été écrit exactement pour toi.</p>
+    </div>
+    <div class="problems-grid">
+      <div class="problem-card reveal">
+        <span class="problem-icon">😓</span>
+        <h3>Tu baisses ton prix à la première objection</h3>
+        <p>Tu travailles dur mais tu te retrouves à brader tes produits parce que tu ne sais pas comment défendre ta valeur.</p>
+      </div>
+      <div class="problem-card reveal">
+        <span class="problem-icon">😶</span>
+        <h3>Tes messages WhatsApp restent sans réponse</h3>
+        <p>Tu envoies des messages, des photos, des prix — et le silence total. Tu ne sais pas comment accrocher l'attention.</p>
+      </div>
+      <div class="problem-card reveal">
+        <span class="problem-icon">😰</span>
+        <h3>Tu bloques face aux objections</h3>
+        <p>«C'est trop cher», «Je dois réfléchir», «Je vais en parler à ma femme» — et tu ne sais plus quoi répondre.</p>
+      </div>
+      <div class="problem-card reveal">
+        <span class="problem-icon">📉</span>
+        <h3>Tu vends moins que tes concurrents</h3>
+        <p>Tes produits sont bons mais tes concurrents vendent plus. La différence ? Leurs techniques de vente, pas leurs produits.</p>
+      </div>
+      <div class="problem-card reveal">
+        <span class="problem-icon">🔄</span>
+        <h3>Tes clients n'achètent qu'une fois</h3>
+        <p>Tu trouves des clients mais ils ne reviennent jamais. Tu passes tout ton temps à chercher de nouveaux acheteurs.</p>
+      </div>
+      <div class="problem-card reveal">
+        <span class="problem-icon">😤</span>
+        <h3>Tu travailles plus mais gagnes pareil</h3>
+        <p>Tu multiplies les efforts sans voir tes revenus augmenter. Il te manque une stratégie commerciale claire.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU LEARN -->
+<section class="section learn-section" id="apprendre">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-tag">Le programme</div>
+      <h2 class="section-title">11 chapitres pour devenir<br>un <span class="gold">vendeur redoutable</span></h2>
+      <p class="section-subtitle">Chaque chapitre est concret, direct, avec des exercices pratiques et des scripts à utiliser immédiatement.</p>
+    </div>
+    <div class="learn-grid">
+      <div class="learn-item reveal"><div class="learn-num">01</div><div><h4>La psychologie de l'acheteur africain</h4><p>Comprendre pourquoi les gens achètent vraiment — les 5 moteurs d'achat.</p></div></div>
+      <div class="learn-item reveal"><div class="learn-num">02</div><div><h4>Créer le besoin</h4><p>Vendre même quand le client pense ne rien vouloir. La technique du miroir.</p></div></div>
+      <div class="learn-item reveal"><div class="learn-num">03</div><div><h4>L'art de la première impression</h4><p>Les 7 secondes qui décident de tout. La règle des 3 premières phrases.</p></div></div>
+      <div class="learn-item reveal"><div class="learn-num">04</div><div><h4>Écouter pour mieux vendre</h4><p>Les 4 niveaux d'écoute. Pourquoi parler moins vend plus.</p></div></div>
+      <div class="learn-item reveal"><div class="learn-num">05</div><div><h4>Gérer les objections</h4><p>La méthode ACQR. Réponses exactes aux 5 objections les plus courantes.</p></div></div>
+      <div class="learn-item reveal"><div class="learn-num">06</div><div><h4>L'urgence et la rareté</h4><p>Les armes secrètes. La preuve sociale version africaine.</p></div></div>
+      <div class="learn-item reveal"><div class="learn-num">07</div><div><h4>Fixer ses prix sans se brader</h4><p>Psychologie du prix. Les 4 stratégies de pricing qui vendent.</p></div></div>
+      <div class="learn-item reveal"><div class="learn-num">08</div><div><h4>Closer la vente</h4><p>5 techniques de closing. Les phrases exactes qui font décider.</p></div></div>
+      <div class="learn-item reveal"><div class="learn-num">09</div><div><h4>Vendre sur les réseaux sociaux</h4><p>WhatsApp Business, Facebook, TikTok — stratégies concrètes.</p></div></div>
+      <div class="learn-item reveal"><div class="learn-num">10</div><div><h4>Fidéliser et créer des ambassadeurs</h4><p>Le programme de parrainage. Transformer un client en machine à recommandations.</p></div></div>
+      <div class="learn-item reveal"><div class="learn-num">11</div><div><h4>Scripts prêts à l'emploi</h4><p>WhatsApp, téléphone, relance, objection prix — copiez et utilisez.</p></div></div>
+      <div class="learn-item reveal" style="background:linear-gradient(135deg,#0F1923,#1C2B3A);border-color:rgba(201,150,12,0.3);">
+        <div class="learn-num" style="background:rgba(201,150,12,0.2);color:var(--gold-light);">+</div>
+        <div><h4 style="color:white;">Checklist récapitulative complète</h4><p style="color:rgba(255,255,255,0.5);">À consulter avant chaque vente pour maximiser tes chances de conclure.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- APERÇU DU GUIDE -->
+<section class="section apercu-section" id="apercu">
+  <div class="section-inner">
+    <div class="apercu-inner">
+      <div class="apercu-book reveal">
+        <div class="apercu-badge">📖 Aperçu du guide</div>
+        <img 
+          src="Blue_Simple_Aesthetic_Floral_Notebook_Cover_Page_A4_20260305_210622_0000.png" 
+          alt="Couverture du guide Vendre Sans Limites par Kévin D'ALMEIDA"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+        >
+        <!-- Fallback si image non trouvée -->
+        <div style="display:none;width:100%;max-width:320px;aspect-ratio:0.7;background:linear-gradient(135deg,#0F1923,#1C2B3A);border-radius:12px;flex-direction:column;align-items:center;justify-content:center;gap:1rem;margin:0 auto;box-shadow:-10px 10px 0 rgba(0,0,0,0.15)">
+          <span style="font-size:4rem">🌍</span>
+          <div style="font-family:Playfair Display,serif;color:white;font-size:1.8rem;font-weight:900;text-align:center;line-height:1.1">VENDRE<br><span style="color:#F5C842">SANS</span><br>LIMITES</div>
+          <div style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Kévin D'ALMEIDA</div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="section-tag">Le guide en détail</div>
+        <h2 class="section-title">Tout ce que contient<br>le guide <span class="gold">Vendre Sans Limites</span></h2>
+        <p class="section-subtitle">50+ pages de contenu pur, sans remplissage — directement applicable sur le terrain africain.</p>
+        <div class="apercu-features">
+          <div class="apercu-feature">
+            <div class="apercu-feature-icon">🧠</div>
+            <div>
+              <h4>Psychologie & stratégie</h4>
+              <p>Les mécanismes du cerveau acheteur africain expliqués simplement avec des exemples du quotidien.</p>
+            </div>
+          </div>
+          <div class="apercu-feature">
+            <div class="apercu-feature-icon">📱</div>
+            <div>
+              <h4>Scripts prêts à copier-coller</h4>
+              <p>WhatsApp, téléphone, relance, objections — des scripts exacts à utiliser dès aujourd'hui.</p>
+            </div>
+          </div>
+          <div class="apercu-feature">
+            <div class="apercu-feature-icon">✏️</div>
+            <div>
+              <h4>Exercices pratiques</h4>
+              <p>Chaque chapitre se termine par des exercices concrets pour ancrer les techniques dans ta pratique.</p>
+            </div>
+          </div>
+          <div class="apercu-feature">
+            <div class="apercu-feature-icon">✅</div>
+            <div>
+              <h4>Checklist récapitulative</h4>
+              <p>Une checklist complète à consulter avant chaque vente pour ne rien oublier.</p>
+            </div>
+          </div>
+          <div class="apercu-feature">
+            <div class="apercu-feature-icon">🎧</div>
+            <div>
+              <h4>Version audio disponible</h4>
+              <p>Préfères-tu écouter ? La version audio intégrale est disponible séparément.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section" id="offres">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center;">
+      <div class="section-tag">Nos offres</div>
+      <h2 class="section-title">Choisir l'offre qui correspond<br>à ton <span class="gold">niveau d'ambition</span></h2>
+      <p class="section-subtitle" style="margin:0 auto;">Chaque commande se fait directement via WhatsApp. Simple, rapide, sécurisé.</p>
+    </div>
+    <div class="pricing-grid">
+
+      <!-- Livre numérique -->
+      <div class="pricing-card reveal">
+        <span class="price-icon">📗</span>
+        <div class="price-name">Livre Numérique</div>
+        <div class="price-amount">5 000 <small style="font-size:1rem">XOF</small></div>
+        <div class="price-period">Paiement unique · Accès immédiat</div>
+        <p class="price-desc">Le guide complet en PDF — 11 chapitres, scripts, exercices et checklist.</p>
+        <ul class="price-features">
+          <li class="price-feature">Guide PDF complet (50+ pages)</li>
+          <li class="price-feature">11 chapitres + exercices pratiques</li>
+          <li class="price-feature">Scripts WhatsApp prêts à l'emploi</li>
+          <li class="price-feature">Checklist récapitulative</li>
+          <li class="price-feature">Livraison immédiate sur WhatsApp</li>
+        </ul>
+        <a href="https://wa.me/22890550915?text=Bonjour%20Kévin,%20je%20veux%20commander%20le%20Livre%20Numérique%20à%205000%20XOF" target="_blank" class="btn-wa">
+          <span>💬</span> Commander — 5 000 XOF
+        </a>
+      </div>
+
+      <!-- Version audio -->
+      <div class="pricing-card reveal">
+        <span class="price-icon">🎧</span>
+        <div class="price-name">Version Audio</div>
+        <div class="price-amount">9 000 <small style="font-size:1rem">XOF</small></div>
+        <div class="price-period">Paiement unique · Accès immédiat</div>
+        <p class="price-desc">Le guide entier en audio — écoute en conduisant, en marchant, où tu veux.</p>
+        <ul class="price-features">
+          <li class="price-feature">Guide complet en format audio</li>
+          <li class="price-feature">Lu par Kévin D'ALMEIDA</li>
+          <li class="price-feature">Téléchargement sur tous appareils</li>
+          <li class="price-feature">PDF inclus en bonus</li>
+          <li class="price-feature">Livraison immédiate sur WhatsApp</li>
+        </ul>
+        <a href="https://wa.me/22890550915?text=Bonjour%20Kévin,%20je%20veux%20commander%20la%20Version%20Audio%20à%209000%20XOF" target="_blank" class="btn-wa">
+          <span>💬</span> Commander — 9 000 XOF
+        </a>
+      </div>
+
+      <!-- Coaching premiers ventes -->
+      <div class="pricing-card featured reveal">
+        <div class="pricing-badge">⭐ Populaire</div>
+        <span class="price-icon">🤝</span>
+        <div class="price-name">Coaching & Accompagnement</div>
+        <div class="price-amount">50 000 <small style="font-size:1rem">XOF</small></div>
+        <div class="price-period">Par mois · Résiliable à tout moment</div>
+        <p class="price-desc">Kévin t'accompagne personnellement pour réaliser tes premières ventes.</p>
+        <ul class="price-features">
+          <li class="price-feature">Accompagnement personnalisé mensuel</li>
+          <li class="price-feature">Stratégie de vente sur mesure</li>
+          <li class="price-feature">Suivi de tes objectifs hebdo</li>
+          <li class="price-feature">Corrections de tes scripts de vente</li>
+          <li class="price-feature">Accès direct WhatsApp à Kévin</li>
+          <li class="price-feature">Guide numérique + audio inclus</li>
+        </ul>
+        <a href="https://wa.me/22890550915?text=Bonjour%20Kévin,%20je%20suis%20intéressé(e)%20par%20le%20Coaching%20Accompagnement%20à%2050000%20XOF/mois" target="_blank" class="btn-wa btn-wa-dark">
+          <span>💬</span> Démarrer — 50 000 XOF/mois
+        </a>
+      </div>
+
+      <!-- Coaching premium -->
+      <div class="pricing-card reveal">
+        <span class="price-icon">👑</span>
+        <div class="price-name">Coaching Privé Premium</div>
+        <div class="price-amount">100 000 <small style="font-size:1rem">XOF</small></div>
+        <div class="price-period">Par mois · Places très limitées</div>
+        <p class="price-desc">Un accès exclusif et illimité à Kévin pour transformer radicalement ton business.</p>
+        <ul class="price-features">
+          <li class="price-feature">Sessions individuelles illimitées</li>
+          <li class="price-feature">Accès prioritaire 7j/7</li>
+          <li class="price-feature">Audit complet de ta stratégie commerciale</li>
+          <li class="price-feature">Scripts et pitchs créés pour toi</li>
+          <li class="price-feature">Réseau et recommandations VIP</li>
+          <li class="price-feature">Toutes les offres précédentes incluses</li>
+        </ul>
+        <a href="https://wa.me/22890550915?text=Bonjour%20Kévin,%20je%20suis%20intéressé(e)%20par%20le%20Coaching%20Privé%20Premium%20à%20100000%20XOF/mois" target="_blank" class="btn-wa">
+          <span>💬</span> Candidater — 100 000 XOF/mois
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials-section" id="temoignages">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center;">
+      <div class="section-tag">Témoignages</div>
+      <h2 class="section-title">Ce qu'ils disent après avoir<br>appliqué <span style="color:var(--gold-light)">ces techniques</span></h2>
+      <p class="section-subtitle" style="margin:0 auto;">Des entrepreneurs africains qui ont transformé leurs ventes.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-text">«Avant ce guide, je bradais mes prix à chaque objection. J'ai appris la méthode ACQR et ma marge a augmenté de 40% en 2 mois avec le même nombre de clients.»</p>
+        <div class="t-author">
+          <div class="t-avatar">K</div>
+          <div><div class="t-name">Kofi Mensah</div><div class="t-role">Vendeur de vêtements · Accra, Ghana</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-text">«Le script WhatsApp m'a fait passer de 2 à 11 ventes par semaine. Juste en changeant mes premières phrases. La technique des 3 premières phrases est magique.»</p>
+        <div class="t-author">
+          <div class="t-avatar">A</div>
+          <div><div class="t-name">Aminata Diallo</div><div class="t-role">Coach personnel · Dakar, Sénégal</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-text">«La règle 80/20 du contenu a transformé ma page TikTok en machine à vendre. 3 500 abonnés gagnés en 6 semaines et mes premières ventes directes.»</p>
+        <div class="t-author">
+          <div class="t-avatar">C</div>
+          <div><div class="t-name">Chukwuemeka Obi</div><div class="t-role">Entrepreneur digital · Lagos, Nigeria</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-text">«Le programme d'ambassadeurs m'a rapporté des clientes qui ramènent 2-3 nouvelles clientes par mois. Mon chiffre d'affaires a doublé sans publicité.»</p>
+        <div class="t-author">
+          <div class="t-avatar">A</div>
+          <div><div class="t-name">Adjoua Kouassi</div><div class="t-role">Revendeuse cosmétiques · Abidjan, Côte d'Ivoire</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-text">«Je ne vends plus des produits chinois, je vends des marges multipliées. Mes clients comprennent immédiatement la valeur et négocient beaucoup moins.»</p>
+        <div class="t-author">
+          <div class="t-avatar">M</div>
+          <div><div class="t-name">Mamadou Baldé</div><div class="t-role">Importateur Chine · Conakry, Guinée</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-text">«J'ai augmenté mes tarifs de 35% après le chapitre sur le pricing. Résultat surprenant : j'ai eu plus de demandes. Les gens me perçoivent maintenant comme premium.»</p>
+        <div class="t-author">
+          <div class="t-avatar">N</div>
+          <div><div class="t-name">Nadia Essomba</div><div class="t-role">Formatrice business · Yaoundé, Cameroun</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="auteur">
+  <div class="section-inner">
+    <div class="about-inner">
+      <div class="about-card reveal">
+        <div class="about-avatar">K</div>
+        <div class="about-name">Kévin D'ALMEIDA</div>
+        <div class="about-title">Docteur en Vente · Expert en Stratégies Commerciales</div>
+        <div class="about-stat-row">
+          <div class="about-stat-box"><span class="num">+1 200</span><span class="lbl">Entrepreneurs formés</span></div>
+          <div class="about-stat-box"><span class="num">6</span><span class="lbl">Pays d'Afrique</span></div>
+          <div class="about-stat-box"><span class="num">94%</span><span class="lbl">Satisfaction</span></div>
+          <div class="about-stat-box"><span class="num">10+</span><span class="lbl">Années terrain</span></div>
+        </div>
+      </div>
+      <div class="about-content reveal">
+        <h2>Né pour vendre,<br><span style="color:var(--gold)">formé pour enseigner</span></h2>
+        <p>Kévin D'ALMEIDA n'est pas né dans une famille d'entrepreneurs. Fils d'un fonctionnaire et d'une commerçante du marché, il a grandi en observant sa mère vendre chaque jour avec une patience et une persuasion qui forçaient l'admiration.</p>
+        <p>À 19 ans, il commence sa carrière avec zéro capital et beaucoup d'ambition. Les refus, les portes fermées, les clients méfiants — il essuie tout. Mais au lieu d'abandonner, il étudie. Il dévore Brian Tracy, Dale Carnegie, Robert Cialdini. Il teste, échoue, ajuste.</p>
+        <p>Aujourd'hui, après <strong>plus de 10 ans sur le terrain</strong>, il est reconnu comme l'une des références de la vente en Afrique francophone. Sa philosophie : <em>tout le monde peut apprendre à vendre, à condition d'avoir les bons outils.</em></p>
+        <div class="about-tags">
+          <span class="about-tag">Docteur en Vente</span>
+          <span class="about-tag">Certifié Brian Tracy</span>
+          <span class="about-tag">Certifié Cialdini</span>
+          <span class="about-tag">Expert WhatsApp Business</span>
+          <span class="about-tag">Conférencier</span>
+          <span class="about-tag">5 Ateliers créés</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq-section" id="faq">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center;">
+      <div class="section-tag">Questions fréquentes</div>
+      <h2 class="section-title">Tu as des questions ?<br>Voici les <span class="gold">réponses</span></h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item reveal">
+        <div class="faq-q">Comment je reçois le guide après paiement ?<span class="faq-icon">+</span></div>
+        <div class="faq-a">Après confirmation de ton paiement via WhatsApp, tu reçois le guide directement sur WhatsApp dans les minutes qui suivent. C'est immédiat.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">Est-ce que ce guide est adapté aux débutants ?<span class="faq-icon">+</span></div>
+        <div class="faq-a">Absolument. Le guide a été conçu pour être accessible à tous, que tu aies 0 ou 10 ans d'expérience en vente. Chaque technique est expliquée simplement avec des exemples concrets africains.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">Je vends quel type de produit ? Ce guide est-il adapté ?<span class="faq-icon">+</span></div>
+        <div class="faq-a">Oui. Que tu vendes des vêtements, des formations, des services digitaux, des produits importés ou quoi que ce soit d'autre — les principes de vente restent les mêmes. Ce guide s'adapte à tout.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">Quelle est la différence entre le coaching et le coaching premium ?<span class="faq-icon">+</span></div>
+        <div class="faq-a">Le coaching accompagnement (50 000 XOF/mois) est idéal pour démarrer et structurer tes premières ventes avec un suivi hebdomadaire. Le coaching privé premium (100 000 XOF/mois) offre un accès illimité et prioritaire à Kévin avec un audit complet de ton business.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">Comment fonctionne le paiement ?<span class="faq-icon">+</span></div>
+        <div class="faq-a">Tu contactes Kévin directement sur WhatsApp, il te communique les modalités de paiement (Mobile Money, virement, etc.) selon ton pays. Simple et sans intermédiaire.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">Est-ce que je peux acheter le livre et l'audio ensemble ?<span class="faq-icon">+</span></div>
+        <div class="faq-a">Oui ! Contacte Kévin sur WhatsApp et demande le pack livre + audio. Il pourra te proposer un tarif combiné avantageux.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CONTACT -->
+<section class="section contact-section" id="contact">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center;margin-bottom:3rem;">
+      <div class="section-tag">Contact</div>
+      <h2 class="section-title">Une question ?<br>On est <span class="gold">là pour toi</span></h2>
+      <p class="section-subtitle" style="margin:0 auto;">Réponds sous 24h. N'hésite pas à nous contacter pour toute question sur nos offres.</p>
+    </div>
+    <div class="contact-inner">
+
+      <!-- Infos contact -->
+      <div class="contact-info reveal">
+        <div class="contact-card">
+          <div class="contact-card-icon wa">💬</div>
+          <div>
+            <h4>Service client WhatsApp</h4>
+            <p>Disponible 7j/7 pour répondre à toutes tes questions</p>
+            <a href="https://wa.me/22890550915?text=Bonjour%20Kévin,%20j'ai%20une%20question%20sur%20Vendre%20Sans%20Limites" target="_blank">+228 90 55 09 15 →</a>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon mail">📧</div>
+          <div>
+            <h4>Adresse e-mail</h4>
+            <p>Pour toute demande formelle ou collaboration</p>
+            <a href="mailto:Contactelatelier@gmail.com">Contactelatelier@gmail.com →</a>
+          </div>
+        </div>
+        <div style="background:linear-gradient(135deg,var(--dark),var(--dark2));border-radius:14px;padding:1.5rem;color:white;">
+          <div style="font-size:1.5rem;margin-bottom:0.8rem;">⏱️</div>
+          <h4 style="font-size:0.95rem;margin-bottom:0.4rem;">Délai de réponse</h4>
+          <p style="font-size:0.83rem;color:rgba(255,255,255,0.6);line-height:1.6;">WhatsApp : réponse en moins de 2h en journée.<br>Email : réponse sous 24h ouvrées.</p>
+        </div>
+      </div>
+
+      <!-- Formulaire -->
+      <div class="contact-form reveal">
+        <h3>Envoie-nous un message</h3>
+        <p>Remplis ce formulaire et on te recontacte rapidement sur WhatsApp ou par email.</p>
+        <div id="contactForm">
+          <div class="form-group">
+            <label for="nom">Ton prénom & nom *</label>
+            <input type="text" id="nom" placeholder="Ex : Aminata Diallo" required>
+          </div>
+          <div class="form-group">
+            <label for="numero">Ton numéro WhatsApp *</label>
+            <input type="tel" id="numero" placeholder="Ex : +228 90 00 00 00" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Ton email (optionnel)</label>
+            <input type="email" id="email" placeholder="Ex : aminata@email.com">
+          </div>
+          <div class="form-group">
+            <label for="message">Ton message *</label>
+            <textarea id="message" placeholder="Dis-nous ce que tu veux savoir, quelle offre t'intéresse, ou pose ta question..." required></textarea>
+          </div>
+          <button class="btn-submit" onclick="handleSubmit()">
+            💬 Envoyer via WhatsApp
+          </button>
+          <p style="font-size:0.78rem;color:var(--text-muted);text-align:center;margin-top:0.8rem;">
+            En cliquant, tu seras redirigé(e) vers WhatsApp avec ton message pré-rempli.
+          </p>
+        </div>
+        <div class="form-success" id="formSuccess">
+          <span class="check">✅</span>
+          <h4>Message envoyé !</h4>
+          <p>Tu vas être redirigé(e) vers WhatsApp. Kévin te répondra très bientôt.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-section">
+  <div class="reveal">
+    <h2>Prêt à vendre<br><span class="gold">sans limites ?</span></h2>
+    <p>Rejoins les 1 200+ entrepreneurs africains qui ont déjà transformé leur façon de vendre.</p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/22890550915?text=Bonjour%20Kévin,%20je%20veux%20commander%20Vendre%20Sans%20Limites" target="_blank" class="btn-primary" style="font-size:1.05rem;padding:18px 36px;">
+        💬 Commander maintenant
+      </a>
+      <a href="#offres" class="btn-secondary" style="font-size:1.05rem;padding:18px 36px;">
+        Voir toutes les offres
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p style="margin-bottom:0.5rem;font-size:1rem;font-weight:700;color:rgba(255,255,255,0.8)">Vendre Sans Limites — par Kévin D'ALMEIDA</p>
+  <p style="margin-bottom:0.3rem">Docteur en Vente · Expert en Stratégies Commerciales</p>
+  <p style="margin-bottom:1.5rem">
+    📱 <strong style="color:rgba(255,255,255,0.7)">00228 90 55 09 15</strong> &nbsp;·&nbsp;
+    📧 <strong style="color:rgba(255,255,255,0.7)">Contactelatelier@gmail.com</strong>
+  </p>
+  <div style="width:60px;height:1px;background:rgba(255,255,255,0.1);margin:0 auto 1.5rem;"></div>
+  <p style="font-size:0.78rem;color:rgba(255,255,255,0.25);line-height:1.8;">
+    © 2025 Kévin D'ALMEIDA — Tous droits réservés &nbsp;·&nbsp;
+    Ce site est à titre informatif et commercial &nbsp;·&nbsp;
+    Toute reproduction du guide est interdite sans autorisation écrite &nbsp;·&nbsp;
+    Les résultats mentionnés ne sont pas garantis et varient selon les individus
+  </p>
+</footer>
+
+<!-- BACK TO TOP -->
+<a href="#" class="back-top" id="backTop" title="Retour en haut">↑</a>
+
+<!-- WHATSAPP FLOATING BUTTON -->
+<a href="https://wa.me/22890550915?text=Bonjour%20Kévin,%20je%20veux%20en%20savoir%20plus%20sur%20Vendre%20Sans%20Limites" target="_blank" class="wa-float" title="Nous contacter sur WhatsApp">💬</a>
+
+<script>
+// Reveal on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 80);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+// Contact form → WhatsApp redirect
+function handleSubmit() {
+  const nom = document.getElementById('nom').value.trim();
+  const numero = document.getElementById('numero').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
+
+  if (!nom || !numero || !message) {
+    alert('Merci de remplir les champs obligatoires (prénom/nom, numéro, message).');
+    return;
+  }
+
+  const emailPart = email ? `%0AEmail : ${encodeURIComponent(email)}` : '';
+  const waMessage = `Bonjour Kévin !%0A%0ANom : ${encodeURIComponent(nom)}%0ATél : ${encodeURIComponent(numero)}${emailPart}%0A%0AMessage :%0A${encodeURIComponent(message)}`;
+  const waURL = `https://wa.me/22890550915?text=${waMessage}`;
+
+  document.getElementById('contactForm').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+
+  setTimeout(() => { window.open(waURL, '_blank'); }, 800);
+}
+
+// Back to top
+const backTop = document.getElementById('backTop');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 400) backTop.classList.add('visible');
+  else backTop.classList.remove('visible');
+});
+</script>
+</body>
+</html>
