@@ -946,7 +946,7 @@ footer strong { color:rgba(255,255,255,0.6); }
 .share-copy:hover { background:var(--gold); color:white; border-color:var(--gold); }
 .profils-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin-top:2.5rem; }
 .profil-card { background:white; border:1.5px solid var(--border); border-radius:14px; padding:1.5rem; transition:all 0.2s; position:relative; overflow:hidden; }
-.profil-card::after { content:'✓ C'est moi !'; position:absolute; bottom:-40px; left:0; right:0; background:var(--gold); color:white; font-size:0.78rem; font-weight:700; text-align:center; padding:10px; transition:bottom 0.25s; }
+.profil-card::after { content:"✓ C'est moi !"; position:absolute; bottom:-40px; left:0; right:0; background:var(--gold); color:white; font-size:0.78rem; font-weight:700; text-align:center; padding:10px; transition:bottom 0.25s; }
 .profil-card:hover { border-color:var(--gold); transform:translateY(-4px); box-shadow:0 12px 30px rgba(0,0,0,0.08); }
 .profil-card:hover::after { bottom:0; }
 .profil-num { font-family:'Playfair Display',serif; font-size:1.8rem; font-weight:900; color:var(--gold); opacity:0.3; margin-bottom:0.5rem; }
@@ -1974,17 +1974,20 @@ footer strong { color:rgba(255,255,255,0.6); }
 <a href="https://wa.me/22890550915?text=Bonjour%20Kévin,%20je%20veux%20en%20savoir%20plus%20sur%20Vendre%20Sans%20Limites" target="_blank" class="wa-float" title="Nous contacter sur WhatsApp">💬</a>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// Reveal on scroll
+// Helper sécurisé
+function el(id) { return document.getElementById(id); }
+
+document.addEventListener('DOMContentLoaded', function() {
+
+// ── REVEAL ON SCROLL ──────────────────────────────────────────────────────
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((e, i) => {
-    if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('visible'), i * 80);
-    }
+    if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80);
   });
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+document.querySelectorAll('.reveal').forEach(el2 => observer.observe(el2));
 
-// FAQ accordion
+// ── FAQ ───────────────────────────────────────────────────────────────────
 document.querySelectorAll('.faq-q').forEach(q => {
   q.addEventListener('click', () => {
     const item = q.parentElement;
@@ -1994,91 +1997,142 @@ document.querySelectorAll('.faq-q').forEach(q => {
   });
 });
 
-// Contact form → WhatsApp redirect
-function handleSubmit() {
-  const nom = document.getElementById('nom').value.trim();
-  const numero = document.getElementById('numero').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const message = document.getElementById('message').value.trim();
-
-  if (!nom || !numero || !message) {
-    alert('Merci de remplir les champs obligatoires (prénom/nom, numéro, message).');
-    return;
-  }
-
-  const emailPart = email ? `%0AEmail : ${encodeURIComponent(email)}` : '';
-  const waMessage = `Bonjour Kévin !%0A%0ANom : ${encodeURIComponent(nom)}%0ATél : ${encodeURIComponent(numero)}${emailPart}%0A%0AMessage :%0A${encodeURIComponent(message)}`;
-  const waURL = `https://wa.me/22890550915?text=${waMessage}`;
-
-  document.getElementById('contactForm').style.display= 'none';
-  document.getElementById('formSuccess').style.display = 'block';
-  setTimeout(() => window.open(waURL, '_blank'), 800);
-}
-
-
-
-// QuickNav scroll
+// ── QUICKNAV SCROLL ───────────────────────────────────────────────────────
+const quicknav = el('quicknav');
+const floatBtn = el('floatMenuBtn');
+const floatDD = el('floatDropdown');
 window.addEventListener('scroll', () => {
-  const qn = document.getElementById('quicknav');
-  const fb = document.getElementById('floatMenuBtn');
   if (window.scrollY > 250) {
-    if(qn) qn.classList.add('hidden');
-    if(fb) fb.classList.add('visible');
+    if(quicknav) quicknav.classList.add('hidden');
+    if(floatBtn) floatBtn.classList.add('visible');
   } else {
-    if(qn) qn.classList.remove('hidden');
-    if(fb) fb.classList.remove('visible');
-    const dd = document.getElementById('floatDropdown');
-    if(dd) dd.classList.remove('open');
+    if(quicknav) quicknav.classList.remove('hidden');
+    if(floatBtn) floatBtn.classList.remove('visible');
+    if(floatDD) floatDD.classList.remove('open');
+  }
+  const backTop = el('backTop');
+  if(backTop) {
+    if (window.scrollY > 400) backTop.classList.add('visible');
+    else backTop.classList.remove('visible');
   }
 });
-function toggleFloatMenu() {
-  document.getElementById('floatDropdown').classList.toggle('open');
-}
+
+// ── FLOAT MENU ────────────────────────────────────────────────────────────
+window.toggleFloatMenu = function() {
+  if(floatDD) floatDD.classList.toggle('open');
+};
 document.addEventListener('click', (e) => {
   if (!e.target.closest('#floatMenuBtn') && !e.target.closest('#floatDropdown')) {
-    const dd = document.getElementById('floatDropdown');
-    if(dd) dd.classList.remove('open');
+    if(floatDD) floatDD.classList.remove('open');
   }
 });
-// Viewers
+
+// ── VIEWERS ───────────────────────────────────────────────────────────────
 function updateViewers() {
-  const el = document.getElementById('viewers-count');
-  if(el) el.textContent = (Math.floor(Math.random()*8)+7) + ' personnes consultent cette page';
+  const v = el('viewers-count');
+  if(v) v.textContent = (Math.floor(Math.random()*8)+7) + ' personnes consultent cette page';
 }
-updateViewers(); setInterval(updateViewers, 12000);
-// Stars
-let selectedStars = 0;
-function setStars(n) {
-  selectedStars = n;
+updateViewers();
+setInterval(updateViewers, 12000);
+
+// ── COUNTDOWN 14 MARS ─────────────────────────────────────────────────────
+function updateCountdown() {
+  const target = new Date('2026-03-14T11:00:00').getTime();
+  const diff = target - Date.now();
+  if (diff <= 0) return;
+  const d=el('cd-days'), h=el('cd-hours'), m=el('cd-mins'), s=el('cd-secs');
+  if(d) d.textContent = String(Math.floor(diff/86400000)).padStart(2,'0');
+  if(h) h.textContent = String(Math.floor((diff%86400000)/3600000)).padStart(2,'0');
+  if(m) m.textContent = String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
+  if(s) s.textContent = String(Math.floor((diff%60000)/1000)).padStart(2,'0');
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// ── STARS SELECTOR ────────────────────────────────────────────────────────
+window.selectedStars = 0;
+window.setStars = function(n) {
+  window.selectedStars = n;
   document.querySelectorAll('.star-btn').forEach((b,i) => b.classList.toggle('active', i < n));
-}
-// Submit avis
-function submitAvis() {
-  const nom = document.getElementById('avis-nom').value.trim();
-  const texte = document.getElementById('avis-text').value.trim();
-  const ville = document.getElementById('avis-ville').value.trim();
-  if (!nom || !texte || !selectedStars) { alert('Merci de remplir ton prénom, ta note et ton avis.'); return; }
-  const stars = '★'.repeat(selectedStars)+'☆'.repeat(5-selectedStars);
-  const vp = ville ? '%0AMétier/Ville : '+encodeURIComponent(ville) : '';
-  const msg = 'Bonjour Kévin ! Voici mon avis :%0A%0A'+encodeURIComponent(stars)+'%0ANom : '+encodeURIComponent(nom)+vp+'%0A%0A'+encodeURIComponent(texte);
-  document.getElementById('avisFormInner').style.display='none';
-  document.getElementById('avisSuccess').style.display='block';
+};
+
+// ── SUBMIT AVIS ───────────────────────────────────────────────────────────
+window.submitAvis = function() {
+  const nom = (el('avis-nom')||{}).value?.trim();
+  const texte = (el('avis-text')||{}).value?.trim();
+  const ville = (el('avis-ville')||{}).value?.trim() || '';
+  if (!nom || !texte || !window.selectedStars) { alert('Merci de remplir ton prénom, ta note et ton avis.'); return; }
+  const stars = '★'.repeat(window.selectedStars)+'☆'.repeat(5-window.selectedStars);
+  const vp = ville ? '%0AM%C3%A9tier%2FVille%20:%20'+encodeURIComponent(ville) : '';
+  const msg = 'Bonjour%20K%C3%A9vin%20!%20Voici%20mon%20avis%20:%0A%0A'+encodeURIComponent(stars)+'%0ANom%20:%20'+encodeURIComponent(nom)+vp+'%0A%0A'+encodeURIComponent(texte);
+  const fi = el('avisFormInner'), fs = el('avisSuccess');
+  if(fi) fi.style.display='none';
+  if(fs) fs.style.display='block';
   setTimeout(() => window.open('https://wa.me/22890550915?text='+msg,'_blank'), 700);
-}
-// Copier lien
-function copyLink() {
+};
+
+// ── CONTACT FORM ──────────────────────────────────────────────────────────
+window.handleSubmit = function() {
+  const nom = (el('nom')||{}).value?.trim();
+  const numero = (el('numero')||{}).value?.trim();
+  const email = (el('email')||{}).value?.trim() || '';
+  const message = (el('message')||{}).value?.trim();
+  if (!nom || !numero || !message) { alert('Merci de remplir les champs obligatoires.'); return; }
+  const emailPart = email ? '%0AEmail%20:%20'+encodeURIComponent(email) : '';
+  const waMessage = 'Bonjour%20K%C3%A9vin%20!%0A%0ANom%20:%20'+encodeURIComponent(nom)+'%0AT%C3%A9l%20:%20'+encodeURIComponent(numero)+emailPart+'%0A%0AMessage%20:%0A'+encodeURIComponent(message);
+  const cf = el('contactForm'), cfs = el('formSuccess');
+  if(cf) cf.style.display='none';
+  if(cfs) cfs.style.display='block';
+  setTimeout(() => window.open('https://wa.me/22890550915?text='+waMessage,'_blank'), 800);
+};
+
+// ── INSCRIPTION FORMATION ─────────────────────────────────────────────────
+window.handleInscription = function() {
+  const nom = (el('insc-nom')||{}).value?.trim();
+  const tel = (el('insc-tel')||{}).value?.trim();
+  const ville = (el('insc-ville')||{}).value?.trim();
+  const activite = (el('insc-activite')||{}).value?.trim() || '';
+  if (!nom || !tel || !ville) { alert('Merci de remplir les champs obligatoires : Nom, Numéro et Ville.'); return; }
+  const actPart = activite ? '%0AActivit%C3%A9%20:%20'+encodeURIComponent(activite) : '';
+  const msg = 'Bonjour%20K%C3%A9vin%20!%0A%0AJe%20veux%20m%27inscrire%20%C3%A0%20la%20formation%20du%2014%20Mars%202026.%0A%0ANom%20:%20'+encodeURIComponent(nom)+'%0AT%C3%A9l%20:%20'+encodeURIComponent(tel)+'%0AVille%20:%20'+encodeURIComponent(ville)+actPart+'%0A%0APouvez-vous%20confirmer%20ma%20place%20?';
+  const inf = el('inscriptionForm'), ins = el('inscriptionSuccess');
+  if(inf) inf.style.display='none';
+  if(ins) ins.style.display='block';
+  setTimeout(() => window.open('https://wa.me/22890550915?text='+msg,'_blank'), 700);
+};
+
+// ── COPIER LIEN ───────────────────────────────────────────────────────────
+window.copyLink = function() {
   navigator.clipboard.writeText(window.location.href).then(() => {
-    const el = document.getElementById('copy-confirm');
-    if(el) { el.style.display='inline'; setTimeout(()=>el.style.display='none',2500); }
-  });
-}
-// WA rotatif
+    const c = el('copy-confirm');
+    if(c) { c.style.display='inline'; setTimeout(()=>c.style.display='none',2500); }
+  }).catch(() => {});
+};
+
+// ── POPUP BIENVENUE ───────────────────────────────────────────────────────
+window.closePopup = function() {
+  const overlay = el('popup-overlay');
+  if(overlay) { overlay.style.opacity='0'; setTimeout(()=>overlay.style.display='none',400); }
+};
+setTimeout(() => {
+  const overlay = el('popup-overlay');
+  const box = el('popup-box');
+  if(overlay) {
+    overlay.style.display='flex';
+    setTimeout(() => {
+      overlay.style.opacity='1';
+      if(box) box.style.transform='translateY(0)';
+    }, 50);
+  }
+}, 2000);
+
+// ── WA ROTATIF ────────────────────────────────────────────────────────────
 const waTexts = ['Commander le guide','Réserver ma place','Devenir partenaire','Poser une question'];
 const waUrls = [
-  'https://wa.me/22890550915?text=Bonjour%20Kévin,%20je%20veux%20commander%20le%20guide%20PDF',
-  'https://wa.me/22890550915?text=Bonjour%20Kévin,%20je%20veux%20réserver%20ma%20place%20pour%20le%2014%20Mars',
-  'https://wa.me/22890550915?text=Bonjour%20Kévin,%20je%20veux%20devenir%20partenaire',
-  'https://wa.me/22890550915?text=Bonjour%20Kévin,%20j'ai%20une%20question'
+  'https://wa.me/22890550915?text=Bonjour%20K%C3%A9vin,%20je%20veux%20commander%20le%20guide%20PDF',
+  'https://wa.me/22890550915?text=Bonjour%20K%C3%A9vin,%20je%20veux%20r%C3%A9server%20ma%20place%20pour%20le%2014%20Mars',
+  'https://wa.me/22890550915?text=Bonjour%20K%C3%A9vin,%20je%20veux%20devenir%20partenaire',
+  'https://wa.me/22890550915?text=Bonjour%20K%C3%A9vin,%20j%27ai%20une%20question'
 ];
 let waIdx = 0;
 const waBubble = document.createElement('div');
@@ -2090,72 +2144,18 @@ setInterval(() => {
   waIdx = (waIdx+1) % waTexts.length;
   if(waBtn) waBtn.href = waUrls[waIdx];
   waBubble.style.opacity='0';
-  setTimeout(() => { waBubble.textContent = waTexts[waIdx]; waBubble.style.opacity='1'; setTimeout(()=>waBubble.style.opacity='0',3000); }, 300);
-}, 5000);
-setTimeout(() => { waBubble.style.opacity='1'; setTimeout(()=>waBubble.style.opacity='0',3000); }, 3500);
-
-// Popup bienvenue
-function closePopup() {
-  const overlay = document.getElementById('popup-overlay');
-  overlay.style.opacity = '0';
-  setTimeout(() => overlay.style.display = 'none', 400);
-}
-setTimeout(() => {
-  const overlay = document.getElementById('popup-overlay');
-  const box = document.getElementById('popup-box');
-  overlay.style.display = 'flex';
   setTimeout(() => {
-    overlay.style.opacity = '1';
-    box.style.transform = 'translateY(0)';
-  }, 50);
-}, 2000);
+    waBubble.textContent = waTexts[waIdx];
+    waBubble.style.opacity='1';
+    setTimeout(()=>waBubble.style.opacity='0', 3000);
+  }, 300);
+}, 5000);
+setTimeout(() => {
+  waBubble.style.opacity='1';
+  setTimeout(()=>waBubble.style.opacity='0', 3000);
+}, 3500);
 
-// Countdown 14 Mars 2026
-function updateCountdown() {
-  const target = new Date('2026-03-14T11:00:00').getTime();
-  const now = new Date().getTime();
-  const diff = target - now;
-  if (diff <= 0) {
-    ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id => {
-      if(document.getElementById(id)) document.getElementById(id).textContent = '00';
-    });
-    return;
-  }
-  const d = document.getElementById('cd-days');
-  const h = document.getElementById('cd-hours');
-  const m = document.getElementById('cd-mins');
-  const s = document.getElementById('cd-secs');
-  if(d) d.textContent = String(Math.floor(diff/(1000*60*60*24))).padStart(2,'0');
-  if(h) h.textContent = String(Math.floor((diff%(1000*60*60*24))/(1000*60*60))).padStart(2,'0');
-  if(m) m.textContent = String(Math.floor((diff%(1000*60*60))/(1000*60))).padStart(2,'0');
-  if(s) s.textContent = String(Math.floor((diff%(1000*60))/1000)).padStart(2,'0');
-}
-updateCountdown();
-setInterval(updateCountdown, 1000);
-
-// Formulaire inscription formation
-function handleInscription() {
-  const nom = document.getElementById('insc-nom').value.trim();
-  const tel = document.getElementById('insc-tel').value.trim();
-  const ville = document.getElementById('insc-ville').value.trim();
-  const activite = document.getElementById('insc-activite').value.trim();
-  if (!nom || !tel || !ville) {
-    alert('Merci de remplir les champs obligatoires : Nom, Numéro et Ville.');
-    return;
-  }
-  const actPart = activite ? `%0AActivité : ${encodeURIComponent(activite)}` : '';
-  const msg = `Bonjour Kévin ! 👋%0A%0AJe veux m'inscrire à la formation du 14 Mars 2026.%0A%0A👤 Nom : ${encodeURIComponent(nom)}%0A📱 Tél : ${encodeURIComponent(tel)}%0A📍 Ville : ${encodeURIComponent(ville)}${actPart}%0A%0APouvez-vous confirmer ma place ? Merci !`;
-  document.getElementById('inscriptionForm').style.display = 'none';
-  document.getElementById('inscriptionSuccess').style.display = 'block';
-  setTimeout(() => window.open(`https://wa.me/22890550915?text=${msg}`, '_blank'), 700);
-}
-
-// Back to top
-const backTop = document.getElementById('backTop');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 400) backTop.classList.add('visible');
-  else backTop.classList.remove('visible');
-});
+}); // fin DOMContentLoaded
 </script>
 </body>
 </html>
