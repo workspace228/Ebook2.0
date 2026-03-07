@@ -909,6 +909,219 @@ footer strong { color:rgba(255,255,255,0.6); }
 .story-body { font-size:0.9rem; color:rgba(255,255,255,0.6); line-height:1.8; }
 @media(max-width:900px) { .quicknav-inner { grid-template-columns:repeat(2,1fr); } .story-banner { grid-template-columns:1fr; text-align:center; } }
 
+
+/* ── QUICK NAV REDESIGN ──────────────────────────────────────────────────── */
+.quicknav {
+  background:rgba(255,255,255,0.97);
+  border-bottom:1px solid var(--border);
+  padding:10px 5%; position:sticky; top:70px; z-index:90;
+  box-shadow:0 4px 20px rgba(0,0,0,0.06);
+  transition:all 0.35s ease;
+}
+.quicknav.hidden { transform:translateY(-120px); opacity:0; pointer-events:none; }
+.quicknav-inner {
+  max-width:1100px; margin:0 auto;
+  display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap;
+}
+.qn-pill {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:9px 20px; border-radius:100px;
+  border:1.5px solid var(--border); background:white;
+  font-size:0.82rem; font-weight:700; color:var(--text);
+  text-decoration:none; transition:all 0.2s; white-space:nowrap;
+}
+.qn-pill:hover { background:var(--gold); color:white; border-color:var(--gold); transform:translateY(-2px); box-shadow:0 6px 16px rgba(201,150,12,0.3); }
+.qn-pill.hot { background:linear-gradient(135deg,#0F1923,#1C2B3A); color:white; border-color:transparent; }
+.qn-pill.hot:hover { background:var(--gold); }
+.qn-pill-badge { background:#E53E3E; color:white; font-size:0.58rem; font-weight:800; padding:2px 6px; border-radius:100px; }
+
+/* Bouton flottant menu rapide */
+.float-menu-btn {
+  position:fixed; bottom:100px; left:20px; z-index:500;
+  background:white; border:1.5px solid var(--border);
+  border-radius:100px; padding:8px 16px;
+  display:flex; align-items:center; gap:8px;
+  font-size:0.78rem; font-weight:700; color:var(--text);
+  box-shadow:0 4px 20px rgba(0,0,0,0.12);
+  cursor:pointer; transition:all 0.25s;
+  opacity:0; pointer-events:none; transform:translateX(-20px);
+}
+.float-menu-btn.visible { opacity:1; pointer-events:all; transform:translateX(0); }
+.float-menu-btn:hover { background:var(--gold); color:white; border-color:var(--gold); }
+
+.float-menu-dropdown {
+  position:fixed; bottom:145px; left:20px; z-index:500;
+  background:white; border:1px solid var(--border);
+  border-radius:16px; padding:0.6rem;
+  box-shadow:0 8px 30px rgba(0,0,0,0.15);
+  display:flex; flex-direction:column; gap:4px;
+  opacity:0; pointer-events:none; transform:translateY(10px);
+  transition:all 0.25s;
+}
+.float-menu-dropdown.open { opacity:1; pointer-events:all; transform:translateY(0); }
+.float-menu-item {
+  display:flex; align-items:center; gap:10px;
+  padding:9px 14px; border-radius:10px;
+  font-size:0.82rem; font-weight:600; color:var(--text);
+  text-decoration:none; transition:all 0.15s; white-space:nowrap;
+}
+.float-menu-item:hover { background:var(--gold-pale); color:var(--gold); }
+
+/* ── AVIS LAISSER ────────────────────────────────────────────────────────── */
+.avis-section { background:var(--dark); }
+.avis-section .section-title { color:white; }
+.avis-section .section-subtitle { color:rgba(255,255,255,0.55); }
+.avis-section .section-tag { background:rgba(201,150,12,0.15); color:var(--gold-light); }
+
+.rating-summary-bar {
+  background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08);
+  border-radius:16px; padding:2rem;
+  display:grid; grid-template-columns:auto 1fr; gap:2.5rem; align-items:center;
+  margin-bottom:2.5rem;
+}
+.rating-big-num {
+  font-family:'Playfair Display',serif;
+  font-size:4rem; font-weight:900; color:var(--gold-light);
+  line-height:1; text-align:center;
+}
+.rating-stars-big { color:var(--gold-light); font-size:1.2rem; letter-spacing:3px; text-align:center; margin:0.4rem 0; }
+.rating-count-txt { font-size:0.78rem; color:rgba(255,255,255,0.4); text-align:center; }
+.rating-bars { display:flex; flex-direction:column; gap:0.5rem; }
+.rating-bar-row {
+  display:grid; grid-template-columns:50px 1fr 36px;
+  gap:10px; align-items:center; font-size:0.8rem; color:rgba(255,255,255,0.5);
+}
+.bar-track { height:7px; background:rgba(255,255,255,0.08); border-radius:100px; overflow:hidden; }
+.bar-fill { height:100%; background:linear-gradient(90deg,var(--gold),var(--gold-light)); border-radius:100px; }
+
+.avis-form {
+  background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08);
+  border-radius:20px; padding:2.5rem; margin-top:2.5rem;
+}
+.avis-form h3 { font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:900; color:white; margin-bottom:0.4rem; }
+.avis-form > p { font-size:0.85rem; color:rgba(255,255,255,0.5); margin-bottom:1.8rem; }
+.stars-selector { display:flex; gap:6px; margin-bottom:1.2rem; }
+.star-btn {
+  font-size:1.8rem; cursor:pointer; transition:transform 0.15s;
+  opacity:0.3; background:none; border:none; padding:0;
+}
+.star-btn.active, .star-btn:hover { opacity:1; transform:scale(1.2); }
+.avis-input {
+  width:100%; padding:11px 15px;
+  background:rgba(255,255,255,0.05); border:1.5px solid rgba(255,255,255,0.1);
+  border-radius:10px; color:white;
+  font-family:'DM Sans',sans-serif; font-size:0.88rem;
+  outline:none; transition:all 0.2s; margin-bottom:1rem;
+}
+.avis-input::placeholder { color:rgba(255,255,255,0.3); }
+.avis-input:focus { border-color:var(--gold); box-shadow:0 0 0 3px rgba(201,150,12,0.12); }
+.avis-textarea { resize:none; height:100px; }
+.avis-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+.btn-avis {
+  width:100%; padding:13px; background:linear-gradient(135deg,var(--gold),#F5C842);
+  color:#0F1923; border:none; border-radius:10px;
+  font-family:'DM Sans',sans-serif; font-size:0.92rem; font-weight:800;
+  cursor:pointer; transition:all 0.2s; display:flex; align-items:center; justify-content:center; gap:8px;
+}
+.btn-avis:hover { transform:translateY(-2px); box-shadow:0 8px 25px rgba(201,150,12,0.4); }
+
+/* ── PARTAGER ────────────────────────────────────────────────────────────── */
+.share-bar {
+  display:flex; align-items:center; gap:0.75rem; flex-wrap:wrap;
+  background:var(--light-bg); border:1px solid var(--border);
+  border-radius:14px; padding:1.2rem 1.5rem; margin-top:2rem;
+}
+.share-label { font-size:0.85rem; font-weight:700; color:var(--text); margin-right:0.5rem; }
+.share-btn {
+  display:inline-flex; align-items:center; gap:6px;
+  padding:8px 16px; border-radius:100px;
+  font-size:0.8rem; font-weight:700; cursor:pointer;
+  border:none; transition:all 0.2s; text-decoration:none;
+}
+.share-wa { background:rgba(37,211,102,0.12); color:#059669; border:1px solid rgba(37,211,102,0.25); }
+.share-wa:hover { background:var(--wa); color:white; }
+.share-fb { background:rgba(24,119,242,0.1); color:#1877F2; border:1px solid rgba(24,119,242,0.2); }
+.share-fb:hover { background:#1877F2; color:white; }
+.share-copy { background:var(--light-bg); color:var(--text-muted); border:1px solid var(--border); }
+.share-copy:hover { background:var(--gold); color:white; border-color:var(--gold); }
+
+/* ── PERSONNES CONSULTENT ────────────────────────────────────────────────── */
+.viewers-badge {
+  display:inline-flex; align-items:center; gap:8px;
+  background:rgba(79,130,247,0.08); border:1px solid rgba(79,130,247,0.2);
+  border-radius:100px; padding:6px 14px; font-size:0.8rem; color:#4F82F7; font-weight:600;
+}
+.viewers-dot { width:7px; height:7px; border-radius:50%; background:#4F82F7; animation:pulse-wa 1.5s infinite; }
+
+/* ── COMPTEUR PLACES ANIMÉ ───────────────────────────────────────────────── */
+.places-progress {
+  background:rgba(255,255,255,0.06); border-radius:10px; padding:1rem; margin-bottom:1.2rem;
+}
+.places-progress-label {
+  display:flex; justify-content:space-between; font-size:0.78rem;
+  color:rgba(255,255,255,0.5); margin-bottom:0.5rem;
+}
+.places-progress-label strong { color:#E53E3E; }
+.places-bar-track { height:8px; background:rgba(255,255,255,0.08); border-radius:100px; overflow:hidden; }
+.places-bar-fill {
+  height:100%; border-radius:100px;
+  background:linear-gradient(90deg,#E53E3E,#F56565);
+  transition:width 1.5s ease;
+}
+
+/* ── WA ROTATIF ──────────────────────────────────────────────────────────── */
+.wa-float-text {
+  position:fixed; bottom:28px; right:90px; z-index:499;
+  background:var(--dark); color:white;
+  padding:8px 14px; border-radius:100px;
+  font-size:0.78rem; font-weight:600;
+  box-shadow:0 4px 15px rgba(0,0,0,0.2);
+  opacity:0; transition:opacity 0.3s;
+  white-space:nowrap; pointer-events:none;
+}
+.wa-float-text.show { opacity:1; }
+
+/* ── GARANTIE ────────────────────────────────────────────────────────────── */
+.garantie-section {
+  background:linear-gradient(135deg,#0F1923,#1C2B3A);
+  border:1px solid rgba(201,150,12,0.2); border-radius:20px;
+  padding:2.5rem; margin:3rem 0;
+  display:grid; grid-template-columns:auto 1fr; gap:2.5rem; align-items:start;
+}
+.garantie-badge-img { width:90px; flex-shrink:0; filter:drop-shadow(0 8px 20px rgba(255,255,255,0.15)); }
+.garantie-title { font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:900; color:white; margin-bottom:1rem; }
+.garantie-articles { display:flex; flex-direction:column; gap:0.8rem; }
+.garantie-article { font-size:0.85rem; color:rgba(255,255,255,0.6); line-height:1.7; padding:0.8rem 1rem; background:rgba(255,255,255,0.04); border-radius:10px; border-left:3px solid var(--gold); }
+.garantie-article strong { color:white; }
+
+/* ── PROFILS CIBLÉS ──────────────────────────────────────────────────────── */
+.profils-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin-top:2.5rem; }
+.profil-card {
+  background:var(--card,white); border:1.5px solid var(--border);
+  border-radius:14px; padding:1.5rem; transition:all 0.2s;
+  position:relative; overflow:hidden;
+}
+.profil-card::after {
+  content:'✓ C'est moi !';
+  position:absolute; bottom:-40px; left:0; right:0;
+  background:var(--gold); color:white;
+  font-size:0.78rem; font-weight:700; text-align:center; padding:10px;
+  transition:bottom 0.25s;
+}
+.profil-card:hover { border-color:var(--gold); transform:translateY(-4px); box-shadow:0 12px 30px rgba(0,0,0,0.08); }
+.profil-card:hover::after { bottom:0; }
+.profil-num { font-family:'Playfair Display',serif; font-size:1.8rem; font-weight:900; color:var(--gold); opacity:0.3; margin-bottom:0.5rem; }
+.profil-card h3 { font-size:0.92rem; font-weight:700; margin-bottom:0.5rem; color:var(--text); }
+.profil-card p { font-size:0.82rem; color:var(--text-muted); line-height:1.6; }
+
+@media(max-width:900px) {
+  .rating-summary-bar { grid-template-columns:1fr; gap:1.5rem; }
+  .avis-row { grid-template-columns:1fr; }
+  .profils-grid { grid-template-columns:1fr; }
+  .garantie-section { grid-template-columns:1fr; text-align:center; }
+  .garantie-badge-img { margin:0 auto; }
+}
+
 /* ── RESPONSIVE ──────────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
   .hero-content { grid-template-columns:1fr; text-align:center; }
@@ -1006,13 +1219,24 @@ footer strong { color:rgba(255,255,255,0.6); }
 
 
 <!-- NAVIGATION RAPIDE -->
-<div class="quicknav">
+<div class="quicknav" id="quicknav">
   <div class="quicknav-inner">
-    <a class="qn-card" href="#offres"><span class="qn-icon">📗</span><span class="qn-title">Guide PDF</span><span class="qn-sub">5 000 FCFA</span></a>
-    <a class="qn-card" href="#offres"><span class="qn-icon">🎧</span><span class="qn-title">Version Audio</span><span class="qn-sub">9 000 FCFA</span></a>
-    <a class="qn-card" href="#formations"><span class="qn-icon">📅</span><span class="qn-title">Formation 14 Mars</span><span class="qn-badge">🔴 3 places</span></a>
-    <a class="qn-card" href="#partenaire"><span class="qn-icon">🤝</span><span class="qn-title">Devenir Partenaire</span><span class="qn-sub">Gagner des commissions</span></a>
+    <a class="qn-pill" href="#offres">📗 Guide PDF <small style="opacity:0.6;font-weight:400">— 5 000 FCFA</small></a>
+    <a class="qn-pill" href="#offres">🎧 Version Audio <small style="opacity:0.6;font-weight:400">— 9 000 FCFA</small></a>
+    <a class="qn-pill hot" href="#formations">📅 Formation 14 Mars <span class="qn-pill-badge">3 places</span></a>
+    <a class="qn-pill" href="#partenaire">🤝 Devenir Partenaire</a>
   </div>
+</div>
+
+<!-- BOUTON FLOTTANT MENU -->
+<div class="float-menu-dropdown" id="floatDropdown">
+  <a class="float-menu-item" href="#offres">📗 Guide PDF</a>
+  <a class="float-menu-item" href="#offres">🎧 Version Audio</a>
+  <a class="float-menu-item" href="#formations">📅 Formation 14 Mars</a>
+  <a class="float-menu-item" href="#partenaire">🤝 Partenariat</a>
+</div>
+<div class="float-menu-btn" id="floatMenuBtn" onclick="toggleFloatMenu()">
+  <span>⚡</span> Accès rapide
 </div>
 
 <!-- PROBLEM -->
@@ -1151,6 +1375,59 @@ footer strong { color:rgba(255,255,255,0.6); }
   </div>
 </section>
 
+
+<!-- PROFILS CIBLÉS -->
+<section class="section" style="background:var(--light-bg);">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center;">
+      <div class="section-tag">🎯 Ce guide est fait pour toi si...</div>
+      <h2 class="section-title">Tu te reconnais dans<br>l'un de ces <span class="gold">profils ?</span></h2>
+      <p class="section-subtitle" style="margin:0 auto;">Ce guide a été conçu pour des profils précis. Retrouve-toi.</p>
+    </div>
+    <div class="profils-grid">
+      <div class="profil-card reveal">
+        <div class="profil-num">01</div>
+        <h3>🛍️ Revendeur ou commerçant</h3>
+        <p>Tu vends des produits physiques — vêtements, cosmétiques, électronique — et tu veux vendre plus sans baisser tes prix.</p>
+      </div>
+      <div class="profil-card reveal">
+        <div class="profil-num">02</div>
+        <h3>💼 Freelance ou prestataire</h3>
+        <p>Graphiste, développeur, photographe, coiffeur — tu as du mal à convaincre tes prospects de payer le juste prix.</p>
+      </div>
+      <div class="profil-card reveal">
+        <div class="profil-num">03</div>
+        <h3>🚀 Tu lances ton business</h3>
+        <p>Tu démarres ton activité et tu veux éviter les erreurs des débutants. Tu veux des clients dès le premier mois.</p>
+      </div>
+      <div class="profil-card reveal">
+        <div class="profil-num">04</div>
+        <h3>📱 Tu vends sur les réseaux</h3>
+        <p>Tu publies sur WhatsApp, Facebook ou TikTok mais tes posts ne génèrent pas assez de ventes concrètes.</p>
+      </div>
+      <div class="profil-card reveal">
+        <div class="profil-num">05</div>
+        <h3>📈 Tu veux passer au niveau sup</h3>
+        <p>Tu travailles dur mais ton chiffre stagne. Il te manque une stratégie commerciale claire pour accélérer.</p>
+      </div>
+      <div class="profil-card reveal" style="background:linear-gradient(135deg,#0F1923,#1C2B3A);border-color:rgba(201,150,12,0.3);">
+        <div class="profil-num" style="color:var(--gold-light)">?</div>
+        <h3 style="color:white;">Aucun de ces profils ?</h3>
+        <p style="color:rgba(255,255,255,0.5);">Contacte Kévin directement sur WhatsApp. Il te dira en 2 minutes si ce guide est fait pour toi.</p>
+        <a href="https://wa.me/22890550915?text=Bonjour%20Kévin,%20est-ce%20que%20le%20guide%20est%20fait%20pour%20moi%20?" target="_blank" style="display:inline-flex;align-items:center;gap:6px;margin-top:1rem;background:var(--wa);color:white;padding:8px 16px;border-radius:100px;font-size:0.8rem;font-weight:700;text-decoration:none;">💬 Demander à Kévin</a>
+      </div>
+    </div>
+    <!-- Bouton partager -->
+    <div class="share-bar reveal">
+      <span class="share-label">📤 Partager cette page :</span>
+      <a class="share-btn share-wa" href="https://wa.me/?text=Je%20te%20recommande%20ce%20guide%20sur%20la%20vente%20en%20Afrique%20!" target="_blank">💬 WhatsApp</a>
+      <a class="share-btn share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://vendresanslimites.com" target="_blank">📘 Facebook</a>
+      <button class="share-btn share-copy" onclick="copyLink()">🔗 Copier le lien</button>
+      <span id="copy-confirm" style="font-size:0.78rem;color:var(--green);display:none;">✓ Lien copié !</span>
+    </div>
+  </div>
+</section>
+
 <!-- PRICING -->
 <section class="section" id="offres">
   <div class="section-inner">
@@ -1285,7 +1562,10 @@ footer strong { color:rgba(255,255,255,0.6); }
               <div class="formation-price">10 000 <small>FCFA</small></div>
               <div class="formation-price-inc">Formation + Ebook inclus</div>
             </div>
-            <div class="places-widget"><div class="places-dot-red"></div><span class="places-text" id="places-count">⚡ 3 places restantes sur 15</span></div>
+            <div class="places-progress">
+            <div class="places-progress-label"><span>Places disponibles</span><strong id="places-count-num">3 restantes sur 15</strong></div>
+            <div class="places-bar-track"><div class="places-bar-fill" id="places-bar-fill" style="width:20%"></div></div>
+          </div>
           </div>
           <a href="#inscription" class="btn-formation" onclick="document.getElementById('inscription').scrollIntoView({behavior:'smooth'})">
             ✍️ S'inscrire maintenant
@@ -1451,7 +1731,23 @@ footer strong { color:rgba(255,255,255,0.6); }
     <div class="reveal" style="text-align:center;">
       <div class="section-tag">Témoignages</div>
       <h2 class="section-title">Ce qu'ils disent après avoir<br>appliqué <span style="color:var(--gold-light)">ces techniques</span></h2>
-      <p class="section-subtitle" style="margin:0 auto;">Des entrepreneurs africains qui ont transformé leurs ventes.</p>
+      <p class="section-subtitle" style="margin:0 auto 1.5rem;">Des entrepreneurs africains qui ont transformé leurs ventes.</p>
+      <div class="viewers-badge reveal"><div class="viewers-dot"></div><span id="viewers-count">12 personnes consultent cette page</span></div>
+    </div>
+    <!-- Barre de progression avis -->
+    <div class="rating-summary-bar reveal">
+      <div>
+        <div class="rating-big-num">4.7</div>
+        <div class="rating-stars-big">★★★★★</div>
+        <div class="rating-count-txt">127 avis vérifiés</div>
+      </div>
+      <div class="rating-bars">
+        <div class="rating-bar-row"><span>5 ★</span><div class="bar-track"><div class="bar-fill" style="width:68%"></div></div><span>86</span></div>
+        <div class="rating-bar-row"><span>4 ★</span><div class="bar-track"><div class="bar-fill" style="width:18%"></div></div><span>23</span></div>
+        <div class="rating-bar-row"><span>3 ★</span><div class="bar-track"><div class="bar-fill" style="width:8%"></div></div><span>10</span></div>
+        <div class="rating-bar-row"><span>2 ★</span><div class="bar-track"><div class="bar-fill" style="width:4%"></div></div><span>5</span></div>
+        <div class="rating-bar-row"><span>1 ★</span><div class="bar-track"><div class="bar-fill" style="width:2%"></div></div><span>3</span></div>
+      </div>
     </div>
     <div class="testimonials-grid">
       <div class="testimonial-card reveal">
@@ -1538,6 +1834,46 @@ footer strong { color:rgba(255,255,255,0.6); }
       </div>
 
     </div>
+
+    <!-- Formulaire laisser un avis -->
+    <div class="avis-form reveal" style="margin-top:3rem;">
+      <h3>⭐ Laisse ton avis</h3>
+      <p>Tu as lu le guide ou participé à une formation ? Partage ton expérience — ça aide d'autres entrepreneurs à décider.</p>
+      <div id="avisFormInner">
+        <div style="margin-bottom:1.2rem;">
+          <div style="font-size:0.82rem;font-weight:600;color:rgba(255,255,255,0.7);margin-bottom:0.5rem;">Ta note *</div>
+          <div class="stars-selector" id="starsSelector">
+            <button class="star-btn" onclick="setStars(1)">★</button>
+            <button class="star-btn" onclick="setStars(2)">★</button>
+            <button class="star-btn" onclick="setStars(3)">★</button>
+            <button class="star-btn" onclick="setStars(4)">★</button>
+            <button class="star-btn" onclick="setStars(5)">★</button>
+          </div>
+        </div>
+        <div class="avis-row">
+          <div>
+            <label style="display:block;font-size:0.82rem;font-weight:600;color:rgba(255,255,255,0.7);margin-bottom:0.4rem;">Ton prénom *</label>
+            <input class="avis-input" type="text" id="avis-nom" placeholder="Ex : Kofi">
+          </div>
+          <div>
+            <label style="display:block;font-size:0.82rem;font-weight:600;color:rgba(255,255,255,0.7);margin-bottom:0.4rem;">Ton métier / ville</label>
+            <input class="avis-input" type="text" id="avis-ville" placeholder="Ex : Vendeur · Lomé">
+          </div>
+        </div>
+        <div>
+          <label style="display:block;font-size:0.82rem;font-weight:600;color:rgba(255,255,255,0.7);margin-bottom:0.4rem;">Ton avis *</label>
+          <textarea class="avis-input avis-textarea" id="avis-text" placeholder="Qu'as-tu aimé ? Qu'est-ce que ça t'a apporté concrètement ?"></textarea>
+        </div>
+        <button class="btn-avis" onclick="submitAvis()">💬 Envoyer mon avis via WhatsApp</button>
+        <p style="font-size:0.72rem;color:rgba(255,255,255,0.3);text-align:center;margin-top:0.8rem;">Tu seras redirigé(e) vers WhatsApp. Ton avis sera publié après validation.</p>
+      </div>
+      <div id="avisSuccess" style="display:none;text-align:center;padding:2rem;">
+        <span style="font-size:3rem;display:block;margin-bottom:1rem;">🎉</span>
+        <h4 style="color:white;font-size:1.1rem;margin-bottom:0.5rem;">Merci pour ton avis !</h4>
+        <p style="color:rgba(255,255,255,0.5);font-size:0.88rem;">Tu vas être redirigé(e) vers WhatsApp. Ton avis sera publié après validation de Kévin.</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1605,6 +1941,22 @@ footer strong { color:rgba(255,255,255,0.6); }
       <div class="faq-item reveal">
         <div class="faq-q">Est-ce que je peux acheter le livre et l'audio ensemble ?<span class="faq-icon">+</span></div>
         <div class="faq-a">Oui ! Contacte Kévin sur WhatsApp et demande le pack livre + audio. Il pourra te proposer un tarif combiné avantageux.</div>
+      </div>
+          <div class="faq-item reveal">
+        <div class="faq-q">Est-ce que la garantie s'applique à la version audio aussi ?<span class="faq-icon">+</span></div>
+        <div class="faq-a">Non. La garantie de remboursement sous 48h s'applique uniquement au Guide PDF Numérique. La version audio, les coachings et les formations physiques ne sont pas couverts par cette garantie.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">Je suis au Sénégal / Côte d'Ivoire / Cameroun. Puis-je commander ?<span class="faq-icon">+</span></div>
+        <div class="faq-a">Absolument ! Le guide et les formations en ligne sont disponibles dans toute l'Afrique francophone. Contacte Kévin sur WhatsApp et il t'indiquera la modalité de paiement adaptée à ton pays.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">Combien de temps faut-il pour voir des résultats ?<span class="faq-icon">+</span></div>
+        <div class="faq-a">Certains participants voient des résultats dès la première semaine en appliquant les scripts WhatsApp. D'autres prennent 2 à 4 semaines selon leur secteur et leur régularité. L'essentiel est d'appliquer — pas juste de lire.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">Puis-je devenir partenaire même si je n'ai pas encore acheté le guide ?<span class="faq-icon">+</span></div>
+        <div class="faq-a">Oui, c'est possible. Cependant, on recommande fortement de lire le guide avant de le recommander — tu seras bien plus convaincant avec tes prospects si tu parles de ce que tu as vécu toi-même.</div>
       </div>
     </div>
   </div>
@@ -1776,6 +2128,26 @@ footer strong { color:rgba(255,255,255,0.6); }
   </div>
 </section>
 
+
+<!-- GARANTIE -->
+<section class="section" style="padding-top:0;padding-bottom:0;">
+  <div class="section-inner">
+    <div class="garantie-section reveal">
+      <img src="badge-verifie.jpg" alt="Garantie" class="garantie-badge-img">
+      <div>
+        <div class="garantie-title">🛡️ Garantie de Satisfaction — Conditions Officielles</div>
+        <div class="garantie-articles">
+          <div class="garantie-article"><strong>Article 1 — Objet :</strong> L'Atelier «Vendre Sans Limites» s'engage à rembourser intégralement tout acheteur du Guide Numérique dont le contenu ne correspondrait pas à la description présentée sur cette page.</div>
+          <div class="garantie-article"><strong>Article 2 — Délai :</strong> Toute demande de remboursement doit être soumise dans un délai de <strong>48 heures</strong> suivant la réception du guide.</div>
+          <div class="garantie-article"><strong>Article 3 — Procédure :</strong> La demande doit être effectuée exclusivement via WhatsApp au <strong>+228 90 55 09 15</strong>, en précisant votre nom, la date d'achat et le motif de votre demande.</div>
+          <div class="garantie-article"><strong>Article 4 — Champ d'application :</strong> Cette garantie s'applique uniquement au <strong>Guide PDF Numérique</strong>. Les versions audio, coachings et formations physiques ne sont pas concernés.</div>
+          <div class="garantie-article"><strong>Article 5 — Remboursement :</strong> Le remboursement sera effectué intégralement, sans frais supplémentaires, dans les <strong>24 heures</strong> suivant la validation de la demande.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CTA FINAL -->
 <section class="cta-section">
   <div class="reveal">
@@ -1802,7 +2174,7 @@ footer strong { color:rgba(255,255,255,0.6); }
   </p>
   <div style="width:60px;height:1px;background:rgba(255,255,255,0.1);margin:0 auto 1.5rem;"></div>
   <p style="font-size:0.78rem;color:rgba(255,255,255,0.25);line-height:1.8;">
-    © 2025 Kévin D'ALMEIDA — Tous droits réservés &nbsp;·&nbsp;
+    © 2026 L'Atelier Vendre Sans Limites — Tous droits réservés · Mis à jour le 7 Mars 2026 &nbsp;·&nbsp;
     Ce site est à titre informatif et commercial &nbsp;·&nbsp;
     Toute reproduction du guide est interdite sans autorisation écrite &nbsp;·&nbsp;
     Les résultats mentionnés ne sont pas garantis et varient selon les individus
@@ -1857,6 +2229,130 @@ function handleSubmit() {
   setTimeout(() => window.open(waURL, '_blank'), 800);
 }
 
+
+
+// ── QUICKNAV SCROLL BEHAVIOR ─────────────────────────────────────────────
+let lastScroll = 0;
+const quicknav = document.getElementById('quicknav');
+const floatBtn = document.getElementById('floatMenuBtn');
+window.addEventListener('scroll', () => {
+  const current = window.scrollY;
+  if (current > 200) {
+    quicknav.classList.add('hidden');
+    floatBtn.classList.add('visible');
+  } else {
+    quicknav.classList.remove('hidden');
+    floatBtn.classList.remove('visible');
+    document.getElementById('floatDropdown').classList.remove('open');
+  }
+  lastScroll = current;
+});
+
+function toggleFloatMenu() {
+  document.getElementById('floatDropdown').classList.toggle('open');
+}
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('#floatMenuBtn') && !e.target.closest('#floatDropdown')) {
+    document.getElementById('floatDropdown').classList.remove('open');
+  }
+});
+
+// ── VIEWERS COUNTER ───────────────────────────────────────────────────────
+function updateViewers() {
+  const base = 8;
+  const variation = Math.floor(Math.random() * 8) + base;
+  const el = document.getElementById('viewers-count');
+  if (el) el.textContent = variation + ' personnes consultent cette page';
+}
+updateViewers();
+setInterval(updateViewers, 12000);
+
+// ── PLACES PROGRESS BAR ───────────────────────────────────────────────────
+let placesLeft = 3;
+const totalPlaces = 15;
+function updatePlaces() {
+  const pct = (placesLeft / totalPlaces) * 100;
+  const fill = document.getElementById('places-bar-fill');
+  const count = document.getElementById('places-count-num');
+  const bar = document.getElementById('places-bar');
+  if (fill) fill.style.width = pct + '%';
+  if (count) count.textContent = placesLeft + ' restante' + (placesLeft > 1 ? 's' : '') + ' sur ' + totalPlaces;
+  if (bar) document.getElementById('places-bar').textContent = placesLeft + ' places restantes';
+}
+updatePlaces();
+
+// ── WA FLOAT ROTATIF ─────────────────────────────────────────────────────
+const waMessages = [
+  'Commander le guide',
+  'Réserver ma place',
+  'Devenir partenaire',
+  'Poser une question',
+  'Obtenir le guide audio'
+];
+const waLinks = [
+  'https://wa.me/22890550915?text=Bonjour%20Kévin,%20je%20veux%20commander%20le%20guide%20PDF',
+  'https://wa.me/22890550915?text=Bonjour%20Kévin,%20je%20veux%20réserver%20ma%20place%20pour%20le%2014%20Mars',
+  'https://wa.me/22890550915?text=Bonjour%20Kévin,%20je%20veux%20devenir%20partenaire',
+  'https://wa.me/22890550915?text=Bonjour%20Kévin,%20j'ai%20une%20question',
+  'https://wa.me/22890550915?text=Bonjour%20Kévin,%20je%20veux%20la%20version%20audio'
+];
+let waIdx = 0;
+const waFloat = document.querySelector('.wa-float');
+// Ajouter la bulle texte
+const waBubble = document.createElement('div');
+waBubble.className = 'wa-float-text';
+waBubble.textContent = waMessages[0];
+document.body.appendChild(waBubble);
+
+setInterval(() => {
+  waIdx = (waIdx + 1) % waMessages.length;
+  if (waFloat) waFloat.href = waLinks[waIdx];
+  waBubble.classList.remove('show');
+  setTimeout(() => {
+    waBubble.textContent = waMessages[waIdx];
+    waBubble.classList.add('show');
+    setTimeout(() => waBubble.classList.remove('show'), 3000);
+  }, 300);
+}, 5000);
+// Afficher la bulle au premier chargement
+setTimeout(() => {
+  waBubble.classList.add('show');
+  setTimeout(() => waBubble.classList.remove('show'), 3000);
+}, 3000);
+
+// ── STARS SELECTOR ────────────────────────────────────────────────────────
+let selectedStars = 0;
+function setStars(n) {
+  selectedStars = n;
+  document.querySelectorAll('.star-btn').forEach((btn, i) => {
+    btn.classList.toggle('active', i < n);
+  });
+}
+
+// ── SUBMIT AVIS ───────────────────────────────────────────────────────────
+function submitAvis() {
+  const nom = document.getElementById('avis-nom').value.trim();
+  const ville = document.getElementById('avis-ville').value.trim();
+  const texte = document.getElementById('avis-text').value.trim();
+  if (!nom || !texte || selectedStars === 0) {
+    alert('Merci de remplir ton prénom, ta note et ton avis.');
+    return;
+  }
+  const stars = '★'.repeat(selectedStars) + '☆'.repeat(5 - selectedStars);
+  const villePart = ville ? `%0AMétier/Ville : ${encodeURIComponent(ville)}` : '';
+  const msg = `Bonjour Kévin ! Voici mon avis sur le guide :%0A%0A${encodeURIComponent(stars)}%0ANom : ${encodeURIComponent(nom)}${villePart}%0A%0A${encodeURIComponent(texte)}`;
+  document.getElementById('avisFormInner').style.display = 'none';
+  document.getElementById('avisSuccess').style.display = 'block';
+  setTimeout(() => window.open(`https://wa.me/22890550915?text=${msg}`, '_blank'), 700);
+}
+
+// ── COPIER LIEN ───────────────────────────────────────────────────────────
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href).then(() => {
+    const el = document.getElementById('copy-confirm');
+    if (el) { el.style.display = 'inline'; setTimeout(() => el.style.display = 'none', 2500); }
+  });
+}
 
 // Popup bienvenue
 function closePopup() {
