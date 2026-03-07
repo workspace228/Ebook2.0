@@ -625,6 +625,290 @@ footer strong { color:rgba(255,255,255,0.6); }
   .contact-inner { grid-template-columns: 1fr; }
 }
 
+
+/* ── FORMATIONS & ÉVÉNEMENTS ─────────────────────────────────────────────── */
+.formations-section { background: var(--dark); position:relative; overflow:hidden; }
+.formations-section::before {
+  content:''; position:absolute; inset:0;
+  background: radial-gradient(ellipse at 80% 20%, rgba(201,150,12,0.08), transparent 60%);
+}
+.formations-section .section-title { color:white; }
+.formations-section .section-subtitle { color:rgba(255,255,255,0.55); }
+.formations-section .section-tag { background:rgba(201,150,12,0.15); color:var(--gold-light); }
+
+.formations-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.5rem; margin-top:3rem; }
+
+.formation-card {
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:20px; overflow:hidden;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  position:relative;
+}
+.formation-card:hover {
+  transform:translateY(-6px);
+  box-shadow:0 20px 50px rgba(0,0,0,0.4);
+  border-color:rgba(201,150,12,0.4);
+}
+.formation-card.upcoming {
+  border-color:rgba(201,150,12,0.3);
+  background:linear-gradient(160deg, rgba(201,150,12,0.06), rgba(255,255,255,0.02));
+}
+.formation-header {
+  padding:1.8rem 1.8rem 1.2rem;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  display:flex; justify-content:space-between; align-items:flex-start; gap:1rem;
+}
+.formation-badge-live {
+  background:linear-gradient(135deg, #C9960C, #F5C842);
+  color:#0F1923; font-size:0.68rem; font-weight:800;
+  text-transform:uppercase; letter-spacing:1px;
+  padding:4px 12px; border-radius:100px; white-space:nowrap;
+  animation: pulse-badge 2s infinite;
+  flex-shrink:0;
+}
+@keyframes pulse-badge {
+  0%,100% { box-shadow:0 0 0 0 rgba(201,150,12,0.4); }
+  50% { box-shadow:0 0 0 6px rgba(201,150,12,0); }
+}
+.formation-badge-past {
+  background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.4);
+  font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:1px;
+  padding:4px 12px; border-radius:100px; flex-shrink:0;
+}
+.formation-edition {
+  font-size:0.72rem; color:var(--gold); font-weight:700;
+  text-transform:uppercase; letter-spacing:1px; margin-bottom:0.5rem;
+}
+.formation-title {
+  font-family:'Playfair Display',serif;
+  font-size:1.2rem; font-weight:900; color:white; line-height:1.3;
+}
+.formation-body { padding:1.4rem 1.8rem; }
+.formation-theme {
+  font-size:0.82rem; color:rgba(255,255,255,0.5);
+  text-transform:uppercase; letter-spacing:0.8px; margin-bottom:0.3rem;
+}
+.formation-theme-val {
+  font-size:1rem; font-weight:700; color:var(--gold-light); margin-bottom:1.2rem;
+  font-style:italic;
+}
+.formation-meta { display:flex; flex-direction:column; gap:0.5rem; margin-bottom:1.5rem; }
+.formation-meta-row {
+  display:flex; align-items:center; gap:8px;
+  font-size:0.84rem; color:rgba(255,255,255,0.6);
+}
+.formation-meta-row strong { color:white; }
+.formation-meta-icon {
+  width:28px; height:28px; border-radius:7px;
+  background:rgba(255,255,255,0.06);
+  display:flex; align-items:center; justify-content:center;
+  font-size:0.85rem; flex-shrink:0;
+}
+.formation-price-row {
+  display:flex; align-items:center; justify-content:space-between; gap:1rem;
+  padding:1rem 0; border-top:1px solid rgba(255,255,255,0.06);
+  margin-bottom:1.2rem;
+}
+.formation-price {
+  font-family:'Playfair Display',serif;
+  font-size:1.6rem; font-weight:900; color:var(--gold-light);
+}
+.formation-price small { font-size:0.85rem; }
+.formation-price-inc {
+  font-size:0.75rem; color:rgba(255,255,255,0.4); line-height:1.5;
+}
+.formation-places {
+  display:flex; align-items:center; gap:6px;
+  font-size:0.78rem; color:rgba(255,255,255,0.5);
+  background:rgba(255,255,255,0.04); border-radius:8px;
+  padding:6px 12px; border:1px solid rgba(255,255,255,0.08);
+}
+.places-dot { width:7px; height:7px; border-radius:50%; background:#F5C842; animation:pulse-badge 1.5s infinite; }
+.btn-formation {
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  width:100%; padding:13px; border-radius:10px;
+  background:var(--wa); color:white;
+  font-family:'DM Sans',sans-serif; font-size:0.92rem; font-weight:700;
+  text-decoration:none; transition:all 0.2s;
+}
+.btn-formation:hover { background:#1ea855; transform:translateY(-2px); box-shadow:0 6px 20px rgba(37,211,102,0.4); }
+.btn-formation-outline {
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.12);
+  color:rgba(255,255,255,0.5);
+}
+.btn-formation-outline:hover { background:rgba(255,255,255,0.08); transform:none; box-shadow:none; }
+
+/* Compteur à rebours */
+.countdown {
+  display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-bottom:1.5rem;
+}
+.countdown-unit {
+  background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08);
+  border-radius:10px; padding:0.8rem 0.5rem; text-align:center;
+}
+.countdown-num {
+  font-family:'Playfair Display',serif;
+  font-size:1.5rem; font-weight:900; color:var(--gold-light); display:block; line-height:1;
+}
+.countdown-lbl { font-size:0.6rem; color:rgba(255,255,255,0.35); text-transform:uppercase; letter-spacing:0.8px; margin-top:0.2rem; display:block; }
+
+/* Formulaire d'inscription */
+.inscription-section {
+  background:linear-gradient(135deg, #0A1628, #0F1923);
+  border:1px solid rgba(201,150,12,0.2);
+  border-radius:20px; padding:2.5rem; margin-top:2rem;
+  position:relative; overflow:hidden;
+}
+.inscription-section::before {
+  content:''; position:absolute; top:-50px; right:-50px;
+  width:200px; height:200px; border-radius:50%;
+  background:radial-gradient(circle, rgba(201,150,12,0.08), transparent 70%);
+}
+.inscription-title {
+  font-family:'Playfair Display',serif;
+  font-size:1.4rem; font-weight:900; color:white; margin-bottom:0.4rem;
+}
+.inscription-sub { font-size:0.85rem; color:rgba(255,255,255,0.5); margin-bottom:1.8rem; }
+.form-dark input {
+  width:100%; padding:12px 16px;
+  background:rgba(255,255,255,0.05);
+  border:1.5px solid rgba(255,255,255,0.1);
+  border-radius:10px; color:white;
+  font-family:'DM Sans',sans-serif; font-size:0.9rem;
+  outline:none; transition:all 0.2s; margin-bottom:1rem;
+}
+.form-dark input::placeholder { color:rgba(255,255,255,0.3); }
+.form-dark input:focus {
+  border-color:var(--gold);
+  box-shadow:0 0 0 3px rgba(201,150,12,0.12);
+  background:rgba(255,255,255,0.07);
+}
+.form-dark label { display:block; font-size:0.82rem; font-weight:600; color:rgba(255,255,255,0.7); margin-bottom:0.4rem; }
+.form-row-2 { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+.btn-inscription {
+  width:100%; padding:14px;
+  background:linear-gradient(135deg, var(--gold), #F5C842);
+  color:#0F1923; border:none; border-radius:10px;
+  font-family:'DM Sans',sans-serif; font-size:0.95rem; font-weight:800;
+  cursor:pointer; transition:all 0.2s;
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  margin-top:0.5rem;
+}
+.btn-inscription:hover { transform:translateY(-2px); box-shadow:0 8px 25px rgba(201,150,12,0.5); }
+.form-note { font-size:0.72rem; color:rgba(255,255,255,0.3); text-align:center; margin-top:0.8rem; }
+.form-success-dark {
+  display:none; text-align:center; padding:2rem;
+}
+.form-success-dark .check { font-size:3rem; margin-bottom:1rem; display:block; }
+.form-success-dark h4 { font-size:1.1rem; font-weight:700; color:white; margin-bottom:0.5rem; }
+.form-success-dark p { font-size:0.88rem; color:rgba(255,255,255,0.5); }
+
+/* ── PARTENAIRE ───────────────────────────────────────────────────────────── */
+.partenaire-section { background:var(--light-bg); }
+.partenaire-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:3rem; }
+.partenaire-card {
+  background:white; border:2px solid var(--border);
+  border-radius:20px; padding:2rem;
+  display:flex; flex-direction:column;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  position:relative; overflow:hidden;
+}
+.partenaire-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:4px;
+  background:linear-gradient(90deg, var(--gold), var(--gold-light));
+  opacity:0; transition:opacity 0.2s;
+}
+.partenaire-card:hover {
+  transform:translateY(-6px);
+  box-shadow:0 20px 50px rgba(0,0,0,0.1);
+  border-color:var(--gold);
+}
+.partenaire-card:hover::before { opacity:1; }
+.partenaire-card.featured-p {
+  border-color:var(--gold);
+  background:linear-gradient(160deg, #0F1923, #1C2B3A);
+}
+.partenaire-card.featured-p::before { opacity:1; }
+.p-card-icon {
+  width:52px; height:52px; border-radius:14px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.6rem; margin-bottom:1.3rem;
+  background:var(--gold-pale);
+}
+.partenaire-card.featured-p .p-card-icon { background:rgba(201,150,12,0.15); }
+.p-card-title { font-size:1.05rem; font-weight:800; margin-bottom:0.4rem; color:var(--text); }
+.partenaire-card.featured-p .p-card-title { color:white; }
+.p-card-subtitle { font-size:0.8rem; color:var(--gold); font-weight:600; margin-bottom:1rem; }
+.p-card-desc { font-size:0.85rem; color:var(--text-muted); line-height:1.7; margin-bottom:1.5rem; flex:1; }
+.partenaire-card.featured-p .p-card-desc { color:rgba(255,255,255,0.55); }
+.p-card-gains { list-style:none; margin-bottom:1.8rem; }
+.p-card-gain {
+  font-size:0.83rem; color:var(--text-muted);
+  display:flex; align-items:flex-start; gap:8px;
+  padding:0.4rem 0; border-bottom:1px solid var(--border);
+}
+.partenaire-card.featured-p .p-card-gain { color:rgba(255,255,255,0.6); border-color:rgba(255,255,255,0.07); }
+.p-card-gain::before { content:'✦'; color:var(--gold); font-size:0.7rem; flex-shrink:0; margin-top:2px; }
+.p-card-commission {
+  background:rgba(201,150,12,0.1); border:1px solid rgba(201,150,12,0.25);
+  border-radius:10px; padding:0.8rem 1rem;
+  font-size:0.85rem; font-weight:700; color:var(--gold);
+  text-align:center; margin-bottom:1.2rem;
+}
+.partenaire-card.featured-p .p-card-commission {
+  background:rgba(201,150,12,0.12); border-color:rgba(201,150,12,0.3);
+}
+.btn-partenaire {
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  padding:12px 20px; border-radius:10px;
+  background:var(--wa); color:white;
+  font-family:'DM Sans',sans-serif; font-size:0.88rem; font-weight:700;
+  text-decoration:none; transition:all 0.2s;
+}
+.btn-partenaire:hover { background:#1ea855; transform:translateY(-2px); box-shadow:0 6px 20px rgba(37,211,102,0.4); }
+.btn-partenaire-gold {
+  background:linear-gradient(135deg, var(--gold), #F5C842);
+  color:#0F1923;
+  box-shadow:0 4px 16px rgba(201,150,12,0.35);
+}
+.btn-partenaire-gold:hover { background:linear-gradient(135deg, #a67c0a, var(--gold)); box-shadow:0 8px 24px rgba(201,150,12,0.5); }
+
+/* Avis négatifs */
+.t-stars-low { font-size:0.9rem; letter-spacing:3px; margin-bottom:1rem; }
+
+@media(max-width:900px) {
+  .formations-grid { grid-template-columns:1fr; }
+  .partenaire-grid { grid-template-columns:1fr; }
+  .form-row-2 { grid-template-columns:1fr; }
+  .countdown { grid-template-columns:repeat(4,1fr); }
+}
+
+
+/* ── QUICK NAV ───────────────────────────────────────────────────────────── */
+.quicknav { background:white; border-bottom:1px solid var(--border); padding:0; position:sticky; top:70px; z-index:90; box-shadow:0 4px 20px rgba(0,0,0,0.06); }
+.quicknav-inner { max-width:1100px; margin:0 auto; padding:0 5%; display:grid; grid-template-columns:repeat(4,1fr); }
+.qn-card { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.3rem; padding:1rem 0.5rem; cursor:pointer; border-right:1px solid var(--border); border-bottom:3px solid transparent; transition:all 0.2s; text-decoration:none; color:var(--text); background:white; }
+.qn-card:last-child { border-right:none; }
+.qn-card:hover { border-bottom-color:var(--gold); background:var(--gold-pale); }
+.qn-icon { font-size:1.4rem; }
+.qn-title { font-size:0.82rem; font-weight:700; color:var(--text); text-align:center; }
+.qn-sub { font-size:0.7rem; color:var(--text-muted); text-align:center; }
+.qn-badge { background:var(--red); color:white; font-size:0.6rem; font-weight:800; padding:2px 7px; border-radius:100px; }
+.badge-verif { display:inline-flex; align-items:center; gap:5px; background:rgba(5,150,105,0.08); border:1px solid rgba(5,150,105,0.2); color:var(--green); font-size:0.68rem; font-weight:700; padding:3px 8px; border-radius:100px; }
+.badge-verif img { width:14px; height:14px; object-fit:contain; border-radius:50%; }
+.places-widget { display:inline-flex; align-items:center; gap:8px; background:rgba(229,62,62,0.08); border:1px solid rgba(229,62,62,0.2); border-radius:100px; padding:6px 14px; margin-bottom:1.5rem; }
+.places-dot-red { width:8px; height:8px; border-radius:50%; background:#E53E3E; animation:pulse-wa 1.2s infinite; flex-shrink:0; }
+.places-text { font-size:0.82rem; font-weight:700; color:#C53030; }
+.story-banner { background:linear-gradient(135deg,#0F1923,#1C2B3A); border-radius:20px; padding:3rem; margin-top:3rem; display:grid; grid-template-columns:1fr 2fr; gap:3rem; align-items:center; position:relative; overflow:hidden; }
+.story-banner::before { content:''; position:absolute; top:-60px; right:-60px; width:250px; height:250px; border-radius:50%; background:radial-gradient(circle, rgba(201,150,12,0.1), transparent 70%); }
+.story-avatar-big { width:120px; height:120px; border-radius:50%; background:linear-gradient(135deg,#C9960C,#F5C842); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:3rem; font-weight:900; color:white; box-shadow:0 12px 40px rgba(201,150,12,0.4); border:3px solid rgba(255,255,255,0.1); margin:0 auto; }
+.story-quote { font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:900; color:white; line-height:1.3; margin-bottom:1rem; }
+.story-quote span { color:#F5C842; }
+.story-body { font-size:0.9rem; color:rgba(255,255,255,0.6); line-height:1.8; }
+@media(max-width:900px) { .quicknav-inner { grid-template-columns:repeat(2,1fr); } .story-banner { grid-template-columns:1fr; text-align:center; } }
+
 /* ── RESPONSIVE ──────────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
   .hero-content { grid-template-columns:1fr; text-align:center; }
@@ -645,6 +929,16 @@ footer strong { color:rgba(255,255,255,0.6); }
 </head>
 <body>
 
+<!-- BARRE ANNONCE -->
+<div id="annonce-bar" style="background:linear-gradient(90deg,#C9960C,#F5C842,#C9960C);background-size:200% 100%;animation:shimmer 3s infinite linear;padding:10px 5%;display:flex;align-items:center;justify-content:center;gap:1rem;position:relative;z-index:200;">
+  <style>@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}</style>
+  <span style="font-size:0.85rem;font-weight:800;color:#0F1923;text-align:center;">
+    🔥 <span id="places-bar">3 places restantes</span> pour la formation du 14 Mars · 
+    <a href="#inscription" style="color:#0F1923;text-decoration:underline;font-weight:900;">Réserver ma place →</a>
+  </span>
+  <button onclick="document.getElementById('annonce-bar').style.display='none'" style="position:absolute;right:16px;background:none;border:none;cursor:pointer;font-size:1rem;color:#0F1923;opacity:0.6;">✕</button>
+</div>
+
 <!-- NAVBAR -->
 <nav>
   <div class="nav-logo">Vendre<span>Sans</span>Limites</div>
@@ -654,6 +948,8 @@ footer strong { color:rgba(255,255,255,0.6); }
     <li><a href="#offres">Offres</a></li>
     <li><a href="#temoignages">Témoignages</a></li>
     <li><a href="#auteur">L'auteur</a></li>
+    <li><a href="#formations">Formations</a></li>
+    <li><a href="#partenaire">Partenariat</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -707,6 +1003,17 @@ footer strong { color:rgba(255,255,255,0.6); }
     </div>
   </div>
 </section>
+
+
+<!-- NAVIGATION RAPIDE -->
+<div class="quicknav">
+  <div class="quicknav-inner">
+    <a class="qn-card" href="#offres"><span class="qn-icon">📗</span><span class="qn-title">Guide PDF</span><span class="qn-sub">5 000 FCFA</span></a>
+    <a class="qn-card" href="#offres"><span class="qn-icon">🎧</span><span class="qn-title">Version Audio</span><span class="qn-sub">9 000 FCFA</span></a>
+    <a class="qn-card" href="#formations"><span class="qn-icon">📅</span><span class="qn-title">Formation 14 Mars</span><span class="qn-badge">🔴 3 places</span></a>
+    <a class="qn-card" href="#partenaire"><span class="qn-icon">🤝</span><span class="qn-title">Devenir Partenaire</span><span class="qn-sub">Gagner des commissions</span></a>
+  </div>
+</div>
 
 <!-- PROBLEM -->
 <section class="section">
@@ -787,7 +1094,7 @@ footer strong { color:rgba(255,255,255,0.6); }
       <div class="apercu-book reveal">
         <div class="apercu-badge">📖 Aperçu du guide</div>
         <img 
-          src="Blue_Simple_Aesthetic_Floral_Notebook_Cover_Page_A4_20260305_210622_0000.png" 
+          src="cover.png" 
           alt="Couverture du guide Vendre Sans Limites par Kévin D'ALMEIDA"
           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
         >
@@ -937,6 +1244,207 @@ footer strong { color:rgba(255,255,255,0.6); }
   </div>
 </section>
 
+
+<!-- FORMATIONS & ÉVÉNEMENTS -->
+<section class="section formations-section" id="formations">
+  <div class="section-inner" style="position:relative;z-index:1;">
+    <div class="reveal" style="text-align:center;">
+      <div class="section-tag">📅 Formations & Événements</div>
+      <h2 class="section-title">Rejoins une <span style="color:var(--gold-light)">formation live</span></h2>
+      <p class="section-subtitle" style="margin:0 auto;">Des sessions intensives en présentiel pour transformer ta façon de vendre — avec Kévin en direct.</p>
+    </div>
+
+    <div class="formations-grid" style="margin-bottom:3rem;">
+
+      <!-- Formation à venir — 14 Mars -->
+      <div class="formation-card upcoming reveal">
+        <div class="formation-header">
+          <div>
+            <div class="formation-edition">7ème Édition</div>
+            <div class="formation-title">Spéciale Formation Vente</div>
+          </div>
+          <div class="formation-badge-live">🔴 À venir</div>
+        </div>
+        <div class="formation-body">
+          <img src="formation-14mars.jpg" alt="Affiche Formation 14 Mars" style="width:100%;border-radius:10px;margin-bottom:1.2rem;box-shadow:0 6px 20px rgba(0,0,0,0.3);">
+          <div class="formation-theme">Thème</div>
+          <div class="formation-theme-val">«Du premier contact au paiement»</div>
+          <div class="countdown" id="countdown-1">
+            <div class="countdown-unit"><span class="countdown-num" id="cd-days">--</span><span class="countdown-lbl">Jours</span></div>
+            <div class="countdown-unit"><span class="countdown-num" id="cd-hours">--</span><span class="countdown-lbl">Heures</span></div>
+            <div class="countdown-unit"><span class="countdown-num" id="cd-mins">--</span><span class="countdown-lbl">Min</span></div>
+            <div class="countdown-unit"><span class="countdown-num" id="cd-secs">--</span><span class="countdown-lbl">Sec</span></div>
+          </div>
+          <div class="formation-meta">
+            <div class="formation-meta-row"><div class="formation-meta-icon">📅</div><span><strong>14 Mars 2026</strong> à 11h00</span></div>
+            <div class="formation-meta-row"><div class="formation-meta-icon">📍</div><span>Avenou, non loin de l'école des cadres · Lomé</span></div>
+            <div class="formation-meta-row"><div class="formation-meta-icon">⏱️</div><span>Durée : journée complète</span></div>
+          </div>
+          <div class="formation-price-row">
+            <div>
+              <div class="formation-price">10 000 <small>FCFA</small></div>
+              <div class="formation-price-inc">Formation + Ebook inclus</div>
+            </div>
+            <div class="places-widget"><div class="places-dot-red"></div><span class="places-text" id="places-count">⚡ 3 places restantes sur 15</span></div>
+          </div>
+          <a href="#inscription" class="btn-formation" onclick="document.getElementById('inscription').scrollIntoView({behavior:'smooth'})">
+            ✍️ S'inscrire maintenant
+          </a>
+        </div>
+      </div>
+
+      <!-- Formation passée — exemple -->
+      <div class="formation-card reveal">
+        <div class="formation-header">
+          <div>
+            <div class="formation-edition">6ème Édition</div>
+            <div class="formation-title">Spéciale Formation Vente</div>
+          </div>
+          <div class="formation-badge-past">✓ Terminée</div>
+        </div>
+        <div class="formation-body">
+          <div class="formation-theme">Thème</div>
+          <div class="formation-theme-val">«Vendre sans baisser ses prix»</div>
+          <div class="formation-meta">
+            <div class="formation-meta-row"><div class="formation-meta-icon">📅</div><span><strong>15 Janvier 2026</strong> à 10h00</span></div>
+            <div class="formation-meta-row"><div class="formation-meta-icon">📍</div><span>Lomé, Togo</span></div>
+            <div class="formation-meta-row"><div class="formation-meta-icon">👥</div><span><strong>15/15 places</strong> — Complet</span></div>
+            <div class="formation-meta-row"><div class="formation-meta-icon">⭐</div><span><strong>4.8/5</strong> — Note des participants</span></div>
+          </div>
+          <div class="formation-price-row">
+            <div>
+              <div class="formation-price" style="font-size:1.2rem;color:rgba(255,255,255,0.3);">10 000 <small>FCFA</small></div>
+              <div class="formation-price-inc">Formation terminée</div>
+            </div>
+          </div>
+          <a href="https://wa.me/22890550915?text=Bonjour%20Kévin,%20je%20veux%20être%20informé(e)%20des%20prochaines%20formations" target="_blank" class="btn-formation btn-formation-outline">
+            🔔 M'alerter pour la prochaine
+          </a>
+        </div>
+      </div>
+
+
+      <!-- Formation passée — 5ème édition -->
+      <div class="formation-card reveal">
+        <div class="formation-header">
+          <div>
+            <div class="formation-edition">5ème Édition</div>
+            <div class="formation-title">Spéciale Formation Vente</div>
+          </div>
+          <div class="formation-badge-past">✓ Terminée</div>
+        </div>
+        <div class="formation-body">
+          <div class="formation-theme">Thème</div>
+          <div class="formation-theme-val">«L'art de closer — Conclure chaque vente»</div>
+          <div class="formation-meta">
+            <div class="formation-meta-row"><div class="formation-meta-icon">📅</div><span><strong>18 Octobre 2025</strong> à 10h00</span></div>
+            <div class="formation-meta-row"><div class="formation-meta-icon">📍</div><span>Lomé, Togo</span></div>
+            <div class="formation-meta-row"><div class="formation-meta-icon">👥</div><span><strong>15/15 places</strong> — Complet</span></div>
+            <div class="formation-meta-row"><div class="formation-meta-icon">⭐</div><span><strong>4.9/5</strong> — Note des participants</span></div>
+          </div>
+          <div class="formation-price-row">
+            <div>
+              <div class="formation-price" style="font-size:1.2rem;color:rgba(255,255,255,0.3);">8 000 <small>FCFA</small></div>
+              <div class="formation-price-inc">Formation terminée</div>
+            </div>
+          </div>
+          <a href="https://wa.me/22890550915?text=Bonjour%20Kévin,%20je%20veux%20être%20informé(e)%20des%20prochaines%20formations" target="_blank" class="btn-formation btn-formation-outline">
+            🔔 M'alerter pour la prochaine
+          </a>
+        </div>
+      </div>
+
+      <!-- Formation passée — 4ème édition -->
+      <div class="formation-card reveal">
+        <div class="formation-header">
+          <div>
+            <div class="formation-edition">4ème Édition</div>
+            <div class="formation-title">Spéciale Formation Vente</div>
+          </div>
+          <div class="formation-badge-past">✓ Terminée</div>
+        </div>
+        <div class="formation-body">
+          <div class="formation-theme">Thème</div>
+          <div class="formation-theme-val">«WhatsApp Business — Vendre sans se montrer»</div>
+          <div class="formation-meta">
+            <div class="formation-meta-row"><div class="formation-meta-icon">📅</div><span><strong>12 Juillet 2025</strong> à 10h00</span></div>
+            <div class="formation-meta-row"><div class="formation-meta-icon">📍</div><span>Lomé, Togo</span></div>
+            <div class="formation-meta-row"><div class="formation-meta-icon">👥</div><span><strong>15/15 places</strong> — Complet</span></div>
+            <div class="formation-meta-row"><div class="formation-meta-icon">⭐</div><span><strong>4.7/5</strong> — Note des participants</span></div>
+          </div>
+          <div class="formation-price-row">
+            <div>
+              <div class="formation-price" style="font-size:1.2rem;color:rgba(255,255,255,0.3);">8 000 <small>FCFA</small></div>
+              <div class="formation-price-inc">Formation terminée</div>
+            </div>
+          </div>
+          <a href="https://wa.me/22890550915?text=Bonjour%20Kévin,%20je%20veux%20être%20informé(e)%20des%20prochaines%20formations" target="_blank" class="btn-formation btn-formation-outline">
+            🔔 M'alerter pour la prochaine
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Formulaire d'inscription -->
+    <div class="inscription-section reveal" id="inscription">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;">
+        <div>
+          <div class="section-tag" style="background:rgba(201,150,12,0.15);color:var(--gold-light);">✍️ Inscription</div>
+          <div class="inscription-title">Réserve ta place<br>pour le 14 Mars</div>
+          <p class="inscription-sub">15 places disponibles. Remplis le formulaire et on te confirme ta place sur WhatsApp dans les 2h.</p>
+          <div style="display:flex;flex-direction:column;gap:0.6rem;margin-top:1.5rem;">
+            <div style="display:flex;align-items:center;gap:10px;font-size:0.85rem;color:rgba(255,255,255,0.6);">
+              <span style="color:var(--gold-light)">✓</span> Confirmation immédiate sur WhatsApp
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:0.85rem;color:rgba(255,255,255,0.6);">
+              <span style="color:var(--gold-light)">✓</span> Paiement le jour J ou à l'avance
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:0.85rem;color:rgba(255,255,255,0.6);">
+              <span style="color:var(--gold-light)">✓</span> Ebook offert à tous les inscrits
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:0.85rem;color:rgba(255,255,255,0.6);">
+              <span style="color:var(--gold-light)">✓</span> Remboursement si annulation 48h avant
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="form-dark" id="inscriptionForm">
+            <div class="form-row-2">
+              <div>
+                <label>Prénom & Nom *</label>
+                <input type="text" id="insc-nom" placeholder="Ex : Kofi Mensah">
+              </div>
+              <div>
+                <label>Numéro WhatsApp *</label>
+                <input type="tel" id="insc-tel" placeholder="+228 90 00 00 00">
+              </div>
+            </div>
+            <div>
+              <label>Ville & Pays *</label>
+              <input type="text" id="insc-ville" placeholder="Ex : Lomé, Togo">
+            </div>
+            <div>
+              <label>Tu vends quoi ? (optionnel)</label>
+              <input type="text" id="insc-activite" placeholder="Ex : Vêtements, services digitaux...">
+            </div>
+            <button class="btn-inscription" onclick="handleInscription()">
+              ✍️ Réserver ma place — 14 Mars
+            </button>
+            <p class="form-note">Tu seras redirigé(e) vers WhatsApp pour confirmer ta réservation.</p>
+          </div>
+          <div class="form-success-dark" id="inscriptionSuccess">
+            <span class="check">🎉</span>
+            <h4>Inscription envoyée !</h4>
+            <p>Tu vas être redirigé(e) vers WhatsApp.<br>Kévin confirme ta place dans les 2h.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- TESTIMONIALS -->
 <section class="section testimonials-section" id="temoignages">
   <div class="section-inner">
@@ -947,7 +1455,7 @@ footer strong { color:rgba(255,255,255,0.6); }
     </div>
     <div class="testimonials-grid">
       <div class="testimonial-card reveal">
-        <div class="t-stars">★★★★★</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem;"><div class="t-stars" style="margin-bottom:0">★★★★★</div><span class="badge-verif"><img src="badge-verifie.jpg" alt="">Achat vérifié</span></div>
         <p class="t-text">«Avant ce guide, je bradais mes prix à chaque objection. J'ai appris la méthode ACQR et ma marge a augmenté de 40% en 2 mois avec le même nombre de clients.»</p>
         <div class="t-author">
           <div class="t-avatar">K</div>
@@ -955,7 +1463,7 @@ footer strong { color:rgba(255,255,255,0.6); }
         </div>
       </div>
       <div class="testimonial-card reveal">
-        <div class="t-stars">★★★★★</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem;"><div class="t-stars" style="margin-bottom:0">★★★★★</div><span class="badge-verif"><img src="badge-verifie.jpg" alt="">Achat vérifié</span></div>
         <p class="t-text">«Le script WhatsApp m'a fait passer de 2 à 11 ventes par semaine. Juste en changeant mes premières phrases. La technique des 3 premières phrases est magique.»</p>
         <div class="t-author">
           <div class="t-avatar">A</div>
@@ -963,7 +1471,7 @@ footer strong { color:rgba(255,255,255,0.6); }
         </div>
       </div>
       <div class="testimonial-card reveal">
-        <div class="t-stars">★★★★★</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem;"><div class="t-stars" style="margin-bottom:0">★★★★★</div><span class="badge-verif"><img src="badge-verifie.jpg" alt="">Achat vérifié</span></div>
         <p class="t-text">«La règle 80/20 du contenu a transformé ma page TikTok en machine à vendre. 3 500 abonnés gagnés en 6 semaines et mes premières ventes directes.»</p>
         <div class="t-author">
           <div class="t-avatar">C</div>
@@ -971,7 +1479,7 @@ footer strong { color:rgba(255,255,255,0.6); }
         </div>
       </div>
       <div class="testimonial-card reveal">
-        <div class="t-stars">★★★★★</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem;"><div class="t-stars" style="margin-bottom:0">★★★★★</div><span class="badge-verif"><img src="badge-verifie.jpg" alt="">Achat vérifié</span></div>
         <p class="t-text">«Le programme d'ambassadeurs m'a rapporté des clientes qui ramènent 2-3 nouvelles clientes par mois. Mon chiffre d'affaires a doublé sans publicité.»</p>
         <div class="t-author">
           <div class="t-avatar">A</div>
@@ -979,7 +1487,7 @@ footer strong { color:rgba(255,255,255,0.6); }
         </div>
       </div>
       <div class="testimonial-card reveal">
-        <div class="t-stars">★★★★★</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem;"><div class="t-stars" style="margin-bottom:0">★★★★★</div><span class="badge-verif"><img src="badge-verifie.jpg" alt="">Achat vérifié</span></div>
         <p class="t-text">«Je ne vends plus des produits chinois, je vends des marges multipliées. Mes clients comprennent immédiatement la valeur et négocient beaucoup moins.»</p>
         <div class="t-author">
           <div class="t-avatar">M</div>
@@ -987,13 +1495,48 @@ footer strong { color:rgba(255,255,255,0.6); }
         </div>
       </div>
       <div class="testimonial-card reveal">
-        <div class="t-stars">★★★★★</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem;"><div class="t-stars" style="margin-bottom:0">★★★★★</div><span class="badge-verif"><img src="badge-verifie.jpg" alt="">Achat vérifié</span></div>
         <p class="t-text">«J'ai augmenté mes tarifs de 35% après le chapitre sur le pricing. Résultat surprenant : j'ai eu plus de demandes. Les gens me perçoivent maintenant comme premium.»</p>
         <div class="t-author">
           <div class="t-avatar">N</div>
           <div><div class="t-name">Nadia Essomba</div><div class="t-role">Formatrice business · Yaoundé, Cameroun</div></div>
         </div>
       </div>
+    
+      <!-- Avis 3 étoiles -->
+      <div class="testimonial-card reveal">
+        <div class="t-stars-low" style="margin-bottom:1rem;">
+          <span style="color:var(--gold-light)">★★★</span><span style="color:rgba(255,255,255,0.2)">★★</span>
+        </div>
+        <p class="t-text">«Le contenu est solide mais j'attendais plus d'exemples concrets pour la vente de services. Certains chapitres sont très orientés produits physiques. Reste quand même un bon investissement pour les bases.»</p>
+        <div class="t-author">
+          <div class="t-avatar" style="background:linear-gradient(135deg,#4B5563,#6B7280);">S</div>
+          <div><div class="t-name">Seydou Traoré</div><div class="t-role">Prestataire de services · Bamako, Mali</div></div>
+        </div>
+      </div>
+      <!-- Avis 2 étoiles -->
+      <div class="testimonial-card reveal">
+        <div class="t-stars-low" style="margin-bottom:1rem;">
+          <span style="color:var(--gold-light)">★★</span><span style="color:rgba(255,255,255,0.2)">★★★</span>
+        </div>
+        <p class="t-text">«Je m'attendais à quelque chose de plus avancé. Pour quelqu'un qui a déjà lu des livres sur la vente, certaines techniques sont connues. Utile pour les débutants mais pas assez pour les intermédiaires.»</p>
+        <div class="t-author">
+          <div class="t-avatar" style="background:linear-gradient(135deg,#4B5563,#6B7280);">E</div>
+          <div><div class="t-name">Emmanuel Agbossou</div><div class="t-role">Entrepreneur · Cotonou, Bénin</div></div>
+        </div>
+      </div>
+      <!-- Avis 4 étoiles -->
+      <div class="testimonial-card reveal">
+        <div class="t-stars-low" style="margin-bottom:1rem;">
+          <span style="color:var(--gold-light)">★★★★</span><span style="color:rgba(255,255,255,0.2)">★</span>
+        </div>
+        <p class="t-text">«La version audio est excellente. J'écoute en voiture chaque matin. Je retire une étoile parce que j'aurais aimé des mises à jour régulières avec de nouveaux scripts. Mais le fond est vraiment bon.»</p>
+        <div class="t-author">
+          <div class="t-avatar" style="background:linear-gradient(135deg,#C9960C,#8B6914);">F</div>
+          <div><div class="t-name">Fatou Camara</div><div class="t-role">Agente immobilière · Lomé, Togo</div></div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1093,7 +1636,7 @@ footer strong { color:rgba(255,255,255,0.6); }
           <div>
             <h4>Adresse e-mail</h4>
             <p>Pour toute demande formelle ou collaboration</p>
-            <a href="mailto:Contactelatelier@gmail.com">Contactelatelier@gmail.com →</a>
+            <a href="/cdn-cgi/l/email-protection#a0e3cfced4c1c3d4c5ccc1d4c5ccc9c5d2e0c7cdc1c9cc8ec3cfcd"><span class="__cf_email__" data-cfemail="51123e3f25303225343d3025343d38342311363c30383d7f323e3c">[email&#160;protected]</span> →</a>
           </div>
         </div>
         <div style="background:linear-gradient(135deg,var(--dark),var(--dark2));border-radius:14px;padding:1.5rem;color:white;">
@@ -1142,6 +1685,97 @@ footer strong { color:rgba(255,255,255,0.6); }
   </div>
 </section>
 
+
+<!-- PARTENAIRE -->
+<section class="section partenaire-section" id="partenaire">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center;">
+      <div class="section-tag">🤝 Devenir Partenaire</div>
+      <h2 class="section-title">Gagne de l'argent en<br><span class="gold">recommandant nos produits</span></h2>
+      <p class="section-subtitle" style="margin:0 auto;">Rejoins notre réseau de partenaires et génère des revenus supplémentaires sans stock, sans investissement.</p>
+    </div>
+
+    <div class="partenaire-grid">
+
+      <!-- Affilié -->
+      <div class="partenaire-card reveal">
+        <div class="p-card-icon">💸</div>
+        <div class="p-card-title">Affilié</div>
+        <div class="p-card-subtitle">Le plus simple pour démarrer</div>
+        <p class="p-card-desc">Tu recommandes nos guides et formations à ton réseau. Pour chaque vente générée grâce à toi, tu touches une commission directement sur Mobile Money.</p>
+        <ul class="p-card-gains">
+          <li class="p-card-gain">Zéro investissement de départ</li>
+          <li class="p-card-gain">Zéro stock à gérer</li>
+          <li class="p-card-gain">Paiement immédiat à chaque vente</li>
+          <li class="p-card-gain">Matériel de vente fourni par Kévin</li>
+        </ul>
+        <div class="p-card-commission">
+          💰 1 000 FCFA / guide vendu<br>
+          💰 5 000 FCFA / inscription formation
+        </div>
+        <a href="https://wa.me/22890550915?text=Bonjour%20Kévin,%20je%20veux%20devenir%20Affilié%20et%20gagner%20des%20commissions" target="_blank" class="btn-partenaire">
+          💬 Devenir Affilié
+        </a>
+      </div>
+
+      <!-- Revendeur de places -->
+      <div class="partenaire-card featured-p reveal">
+        <div class="p-card-icon" style="background:rgba(201,150,12,0.15);">🎟️</div>
+        <div class="p-card-title">Revendeur de Places</div>
+        <div class="p-card-subtitle" style="color:#F5C842;">La formule la plus rentable</div>
+        <p class="p-card-desc" style="color:rgba(255,255,255,0.55);">Tu achètes des places à prix préférentiel et tu les revends à ton réseau au tarif normal. La différence est ton bénéfice direct — sans partage avec personne.</p>
+        <ul class="p-card-gains">
+          <li class="p-card-gain">Prix préférentiel réservé aux revendeurs</li>
+          <li class="p-card-gain">100% du bénéfice pour toi</li>
+          <li class="p-card-gain">Priorité sur les meilleures places</li>
+          <li class="p-card-gain">Support et coaching de vente inclus</li>
+        </ul>
+        <div class="p-card-commission">
+          🎟️ Prix revendeur : à négocier avec Kévin<br>
+          💰 Marge estimée : 2 000 à 4 000 FCFA/place
+        </div>
+        <a href="https://wa.me/22890550915?text=Bonjour%20Kévin,%20je%20veux%20devenir%20Revendeur%20de%20places%20pour%20les%20formations" target="_blank" class="btn-partenaire btn-partenaire-gold">
+          ✦ Devenir Revendeur
+        </a>
+      </div>
+
+      <!-- Partenaire Business -->
+      <div class="partenaire-card reveal">
+        <div class="p-card-icon">🏢</div>
+        <div class="p-card-title">Partenaire Business</div>
+        <div class="p-card-subtitle">Pour les structures et communautés</div>
+        <p class="p-card-desc">Tu as une entreprise, une communauté ou une audience ? On collabore ensemble sur des formations et événements. Les revenus sont partagés selon les termes définis ensemble.</p>
+        <ul class="p-card-gains">
+          <li class="p-card-gain">Idéal pour associations & écoles</li>
+          <li class="p-card-gain">Formations sur mesure pour ton équipe</li>
+          <li class="p-card-gain">Partage de revenus défini ensemble</li>
+          <li class="p-card-gain">Visibilité croisée sur nos réseaux</li>
+        </ul>
+        <div class="p-card-commission">
+          🤝 Conditions personnalisées<br>
+          📞 Discussion directe avec Kévin
+        </div>
+        <a href="https://wa.me/22890550915?text=Bonjour%20Kévin,%20je%20veux%20discuter%20d'un%20Partenariat%20Business" target="_blank" class="btn-partenaire">
+          💬 Discuter d'un partenariat
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Bannière CTA partenaire -->
+    <div class="reveal" style="margin-top:2.5rem;background:linear-gradient(135deg,#0F1923,#1C2B3A);border:1px solid rgba(201,150,12,0.2);border-radius:16px;padding:2rem;display:flex;gap:2rem;align-items:center;flex-wrap:wrap;">
+      <div style="font-size:2.5rem;flex-shrink:0;">🚀</div>
+      <div style="flex:1;">
+        <h3 style="color:white;font-size:1rem;font-weight:700;margin-bottom:0.3rem;">Prêt à générer tes premiers revenus en tant que partenaire ?</h3>
+        <p style="font-size:0.85rem;color:rgba(255,255,255,0.5);line-height:1.6;">Contacte Kévin directement sur WhatsApp. Il t'explique tout en moins de 5 minutes et tu peux commencer dès aujourd'hui.</p>
+      </div>
+      <a href="https://wa.me/22890550915?text=Bonjour%20Kévin,%20je%20veux%20rejoindre%20le%20réseau%20de%20partenaires" target="_blank" style="background:var(--gold);color:white;padding:12px 24px;border-radius:10px;font-weight:700;font-size:0.9rem;text-decoration:none;white-space:nowrap;transition:all 0.2s;flex-shrink:0;" onmouseover="this.style.background='#a67c0a'" onmouseout="this.style.background='var(--gold)'">
+        💬 Je veux devenir partenaire →
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- CTA FINAL -->
 <section class="cta-section">
   <div class="reveal">
@@ -1164,7 +1798,7 @@ footer strong { color:rgba(255,255,255,0.6); }
   <p style="margin-bottom:0.3rem">Docteur en Vente · Expert en Stratégies Commerciales</p>
   <p style="margin-bottom:1.5rem">
     📱 <strong style="color:rgba(255,255,255,0.7)">00228 90 55 09 15</strong> &nbsp;·&nbsp;
-    📧 <strong style="color:rgba(255,255,255,0.7)">Contactelatelier@gmail.com</strong>
+    📧 <strong style="color:rgba(255,255,255,0.7)"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f0b39f9e84919384959c9184959c999582b0979d91999cde939f9d">[email&#160;protected]</a></strong>
   </p>
   <div style="width:60px;height:1px;background:rgba(255,255,255,0.1);margin:0 auto 1.5rem;"></div>
   <p style="font-size:0.78rem;color:rgba(255,255,255,0.25);line-height:1.8;">
@@ -1181,7 +1815,7 @@ footer strong { color:rgba(255,255,255,0.6); }
 <!-- WHATSAPP FLOATING BUTTON -->
 <a href="https://wa.me/22890550915?text=Bonjour%20Kévin,%20je%20veux%20en%20savoir%20plus%20sur%20Vendre%20Sans%20Limites" target="_blank" class="wa-float" title="Nous contacter sur WhatsApp">💬</a>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Reveal on scroll
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((e, i) => {
@@ -1218,10 +1852,66 @@ function handleSubmit() {
   const waMessage = `Bonjour Kévin !%0A%0ANom : ${encodeURIComponent(nom)}%0ATél : ${encodeURIComponent(numero)}${emailPart}%0A%0AMessage :%0A${encodeURIComponent(message)}`;
   const waURL = `https://wa.me/22890550915?text=${waMessage}`;
 
-  document.getElementById('contactForm').style.display = 'none';
+  document.getElementById('contactForm').style.display= 'none';
   document.getElementById('formSuccess').style.display = 'block';
+  setTimeout(() => window.open(waURL, '_blank'), 800);
+}
 
-  setTimeout(() => { window.open(waURL, '_blank'); }, 800);
+
+// Popup bienvenue
+function closePopup() {
+  const overlay = document.getElementById('popup-overlay');
+  overlay.style.opacity = '0';
+  setTimeout(() => overlay.style.display = 'none', 400);
+}
+setTimeout(() => {
+  const overlay = document.getElementById('popup-overlay');
+  const box = document.getElementById('popup-box');
+  overlay.style.display = 'flex';
+  setTimeout(() => {
+    overlay.style.opacity = '1';
+    box.style.transform = 'translateY(0)';
+  }, 50);
+}, 2000);
+
+// Countdown 14 Mars 2026
+function updateCountdown() {
+  const target = new Date('2026-03-14T11:00:00').getTime();
+  const now = new Date().getTime();
+  const diff = target - now;
+  if (diff <= 0) {
+    ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id => {
+      if(document.getElementById(id)) document.getElementById(id).textContent = '00';
+    });
+    return;
+  }
+  const d = document.getElementById('cd-days');
+  const h = document.getElementById('cd-hours');
+  const m = document.getElementById('cd-mins');
+  const s = document.getElementById('cd-secs');
+  if(d) d.textContent = String(Math.floor(diff/(1000*60*60*24))).padStart(2,'0');
+  if(h) h.textContent = String(Math.floor((diff%(1000*60*60*24))/(1000*60*60))).padStart(2,'0');
+  if(m) m.textContent = String(Math.floor((diff%(1000*60*60))/(1000*60))).padStart(2,'0');
+  if(s) s.textContent = String(Math.floor((diff%(1000*60))/1000)).padStart(2,'0');
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// Formulaire inscription formation
+function handleInscription() {
+  const nom = document.getElementById('insc-nom').value.trim();
+  const tel = document.getElementById('insc-tel').value.trim();
+  const ville = document.getElementById('insc-ville').value.trim();
+  const activite = document.getElementById('insc-activite').value.trim();
+  if (!nom || !tel || !ville) {
+    alert('Merci de remplir les champs obligatoires : Nom, Numéro et Ville.');
+    return;
+  }
+  const actPart = activite ? `%0AActivité : ${encodeURIComponent(activite)}` : '';
+  const msg = `Bonjour Kévin ! 👋%0A%0AJe veux m'inscrire à la formation du 14 Mars 2026.%0A%0A👤 Nom : ${encodeURIComponent(nom)}%0A📱 Tél : ${encodeURIComponent(tel)}%0A📍 Ville : ${encodeURIComponent(ville)}${actPart}%0A%0APouvez-vous confirmer ma place ? Merci !`;
+  document.getElementById('inscriptionForm').style.display = 'none';
+  document.getElementById('inscriptionSuccess').style.display = 'block';
+  setTimeout(() => window.open(`https://wa.me/22890550915?text=${msg}`, '_blank'), 700);
 }
 
 // Back to top
